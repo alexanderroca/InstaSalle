@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class SubMenu {
+    public void mostraSubMenuOrd(){
+        int cas;
+        Scanner sc = new Scanner(System.in);
+
+        // Pintem el menú:
+        System.out.println("Metodes d'ordenacio:");
+        System.out.println("1. Merge Sort");
+        System.out.println("2. Quicksort");
+        System.out.println("3. Selection Sort");
+        System.out.println("4. Radix Sort\n");
+        System.out.print("Sel·lecciona una opcio: ");
+        cas = sc.nextInt();
+
+
+        switch (cas) {
+            case 1:
+                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                break;
+            case 2:
+                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                break;
+            case 3:
+                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                break;
+            case 4:
+                System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
+                break;
+            default:
+                System.out.println("\nError, opció incorrecta\n");
+
+        }
+    }
+
+    public String mostraSubMenuJson(){
+        int cas;
+        Scanner sc = new Scanner(System.in);
+        String json = "jsons/";
+        // Pintem el menú:
+        do {
+            System.out.println("Fitxers JSON:");
+            System.out.println("1. m_dataset.json");
+            System.out.println("2. s_dataset.json");
+            System.out.println("3. xs_dataset.json");
+            System.out.print("Sel·lecciona una opcio: ");
+            cas = sc.nextInt();
+
+
+            switch (cas) {
+                case 1:
+                   json = json.concat("m_dataset.json");
+                    break;
+                case 2:
+                    json = json.concat("s_dataset.json");
+                    break;
+                case 3:
+                    json = json.concat("xs_dataset.json");
+                    break;
+                default:
+                    System.out.println("\nError, opció incorrecta\n");
+
+            }
+        }while((cas != 1) &&(cas != 2) && (cas != 3));
+        return json;
+    }
+}
