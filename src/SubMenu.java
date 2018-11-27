@@ -1,6 +1,18 @@
 import java.util.Scanner;
 
+/**
+ *Classe que defineix els submenus que usarem per determinar quin JSON llegirà
+ * i quin mètode d'ordenació s'usarà
+ *
+ * @author: Alexander Roca, Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class SubMenu {
+
+    /**
+     *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
+     */
     public void mostraSubMenuOrd(){
         int cas;
         Scanner sc = new Scanner(System.in);
@@ -34,6 +46,10 @@ public class SubMenu {
         }
     }
 
+    /**
+     *Procediment per visualitzar el submenú per seleccionar el JSON (els JSONs estan en la carpeta jsons)
+     * el qual voldrem llegir
+     */
     public String mostraSubMenuJson(){
         int cas;
         Scanner sc = new Scanner(System.in);
