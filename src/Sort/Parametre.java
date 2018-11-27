@@ -1,5 +1,12 @@
 package Sort;
 
+/**
+ *Classe auxiliar que defineix els camps necessaris per efectuar el mètode d'ordenació Quicksort
+ *
+ * @author: Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class Parametre {
     private int[] a;
     private int i;

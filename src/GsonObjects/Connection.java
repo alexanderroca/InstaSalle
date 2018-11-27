@@ -1,5 +1,12 @@
 package GsonObjects;
 
+/**
+ *Classe que defineix les connexions i les interaccions entre usuaris
+ *
+ * @author: Alexander Roca, Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class Connection {
     private String username;
     private long since;

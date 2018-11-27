@@ -1,6 +1,14 @@
 package Sort;
 
+/**
+ *Classe que defineix el mètode d'ordenació MergeSort
+ *
+ * @author: Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class MergeSort {
+
      public int[] ordenaMergeI(int[] a, int i, int j){
          int mig;
 
