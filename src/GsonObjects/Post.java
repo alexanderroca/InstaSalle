@@ -1,5 +1,12 @@
 package GsonObjects;
 
+/**
+ *Classe que defineix els camps d'un post que va realitzar un Usuari
+ *
+ * @author: Alexander Roca, Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class Post {
     private int id;
     private long published;

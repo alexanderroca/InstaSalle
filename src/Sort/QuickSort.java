@@ -1,5 +1,12 @@
 package Sort;
 
+/**
+ *Classe que defineix el mètode d'ordenació Quicksort
+ *
+ * @author: Alexander Roca, Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class QuickSort {
 
     public int[] QuicksortI(Parametre parametre){

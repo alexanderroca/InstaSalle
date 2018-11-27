@@ -2,16 +2,30 @@ import GsonObjects.Usuari;
 
 import java.util.Scanner;
 
+/**
+ *Classe que defineix el menú principal del programa, a partir d'aquesta
+ * la resta de classes es relacionaran amb ella.
+ *
+ * @author: Alexander Roca, Marc Cespedes
+ * @version 15/11/2018 - 0.1
+ */
+
 public class Menu {
 
+    /**
+     *Procediment per visualitzar el menú principal, el qual s'executarà fins que no es seleccioni l'opció 4 (sortir)
+     */
     public void mostraMenu(){
         SubMenu submenu = new SubMenu();
+        TaulaHash taulaHash;
+
         int cas;
         Scanner sc = new Scanner(System.in);
 
         llegeixJSON llegeixJSON = new llegeixJSON();
         Usuari[] usuaris = llegeixJSON.readJSON(submenu.mostraSubMenuJson());
 
+        taulaHash = new TaulaHash(usuaris);
 
         // Pintem el menú
         do{
