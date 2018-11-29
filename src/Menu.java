@@ -41,6 +41,7 @@ public class Menu {
             switch (cas) {
                 case 1:
                     System.out.println("\nNo implementat\n");
+                    //TODO: passar els camps: opcio d'ordenacio, taulaHash
                     submenu.mostraSubMenuOrd();
                     break;
                 case 2:
