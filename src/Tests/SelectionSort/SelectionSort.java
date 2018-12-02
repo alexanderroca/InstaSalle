@@ -1,4 +1,4 @@
-package Sort;
+package Tests.SelectionSort;
 
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
