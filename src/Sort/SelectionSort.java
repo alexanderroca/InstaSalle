@@ -3,7 +3,7 @@ package Sort;
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
  *
- * @author: Marc Cespedes
+ * @author: Alexander Roca
  * @version  - 0.1
  */
 
