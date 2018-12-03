@@ -60,7 +60,7 @@ public class TaulaHash {
         latitudF = Math.toRadians(latitudF);
 
         double var1 = Math.pow(Math.sin(dLatitud / 2), 2) + Math.pow(Math.sin(dLongitud / 2), 2) *
-                    Math.cos(latitudF);
+                    Math.cos(latitudO) * Math.cos(latitudF);
         double var2 = 2 * Math.asin(Math.sqrt(var1));
 
         return RADI_TERRA * var2;    //distancia
