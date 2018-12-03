@@ -2,6 +2,8 @@ import GsonObjects.Post;
 import Tests.SelectionSort.SelectionSort;
 import javafx.geometry.Pos;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -17,7 +19,7 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(Post[] posts){
+    public void mostraSubMenuOrd(int opcio, Post[] posts){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -40,9 +42,16 @@ public class SubMenu {
                 break;
             case "3":
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
-                SelectionSort selectionSort = new SelectionSort();
-                posts = selectionSort.selectionSortPosts(posts);
-
+                if(opcio == 1) {
+                    SelectionSort selectionSort = new SelectionSort();
+                    posts = selectionSort.selectionSortPosts(posts);
+                    for(int i = 0; i < posts.length - 1; i++){
+                        Date data = new Date(posts[i].getPublished());
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(data);
+                        System.out.println(cal.get(Calendar.DATE) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.YEAR));
+                    }   //for
+                }
                 break;
             case "4":
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu

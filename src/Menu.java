@@ -43,15 +43,15 @@ public class Menu {
                 case "1":
                     System.out.println("\nNo implementat\n");
                     Post[] posts = taulaHash.extractPosts(taulaHash);
-                    submenu.mostraSubMenuOrd(posts);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
                     break;
                 case "2":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(null);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), null);
                     break;
                 case "3":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(null);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas),null);
                     break;
                 case "4":
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");
