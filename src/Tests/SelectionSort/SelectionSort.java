@@ -33,6 +33,12 @@ public class SelectionSort {
         return array;
     }
 
+
+    /**
+     * Funcio que ordena els posts segons la seva data de publicacio
+     * @param array : array de Post
+     * @return array de Post ordenat segons la seva data de publicacio
+     */
     public Post[] selectionSortPosts(Post[] array){
         for(int i = 0; i < array.length - 2; i++){
 

@@ -18,7 +18,7 @@ public class TaulaHash {
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
      *
-     * @param usuaris: ArrayLista d'usuaris
+     * @param usuaris: ArrayList d'usuaris
      * @return taula de hash on la KEY serà el nom del usuari(String) i el VALUE serà Usuari
      */
     public TaulaHash(Usuari[] usuaris) {
@@ -33,9 +33,9 @@ public class TaulaHash {
     }
 
     /**
-     *
-     * @param taulaHash
-     * @return
+     *Funcio que extreu tots els Post de la taula de hash
+     * @param taulaHash : HashMap que conté tots els Usuaris
+     * @return array de Post
      */
     public Post[] extractPosts(TaulaHash taulaHash){
         Post[] posts = new Post[taulaHash.hashtable.size()];
@@ -52,6 +52,14 @@ public class TaulaHash {
         return posts;
     }
 
+    /**
+     * Funcio que realitza la formual de Haversine
+     * @param latitudO : double que indica la latitude inicial
+     * @param longitudO : double que indica la longitud inicial
+     * @param latitudF : double que indica la latitud final
+     * @param longitudF : double que indica la longitud final
+     * @return double que indica la distancia
+     */
     public double calculaDistancia(double latitudO, double longitudO, double latitudF, double longitudF){
         double dLatitud = Math.toRadians(latitudF - latitudO);
         double dLongitud = Math.toRadians(longitudF - longitudO);
