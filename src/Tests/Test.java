@@ -18,7 +18,7 @@ public class Test {
         SelectionSort selectionSort = new SelectionSort();
         RadixSort radixSort = new RadixSort();
 
-        //test = selectionSort.selectionSort(test);
+        test = selectionSort.selectionSort(test);
 
         test = radixSort.radixSort(test);
 

@@ -1,3 +1,9 @@
+import GsonObjects.Post;
+import Tests.SelectionSort.SelectionSort;
+import javafx.geometry.Pos;
+
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -13,8 +19,8 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(){
-        int cas;
+    public void mostraSubMenuOrd(int opcio, Post[] posts){
+        String cas;
         Scanner sc = new Scanner(System.in);
 
         // Pintem el menú:
@@ -24,25 +30,32 @@ public class SubMenu {
         System.out.println("3. Selection Sort");
         System.out.println("4. Radix Sort\n");
         System.out.print("Sel·lecciona una opcio: ");
-        cas = sc.nextInt();
+        cas = sc.nextLine();
 
 
         switch (cas) {
-            case 1:
+            case "1":
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
                 break;
-            case 2:
+            case "2":
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
                 break;
-            case 3:
+            case "3":
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                if(opcio == 1) {
+                    SelectionSort selectionSort = new SelectionSort();
+                    posts = selectionSort.selectionSortPosts(posts);
+                    for(int i = 0; i < posts.length - 1; i++){
+                        Date data = new Date(posts[i].getPublished() * 1000);
+                        System.out.println(data);
+                    }   //for
+                }
                 break;
-            case 4:
+            case "4":
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
-
         }
     }
 
@@ -51,7 +64,7 @@ public class SubMenu {
      * el qual voldrem llegir
      */
     public String mostraSubMenuJson(){
-        int cas;
+        String cas;
         Scanner sc = new Scanner(System.in);
         String json = "jsons/";
         // Pintem el menú:
@@ -61,24 +74,24 @@ public class SubMenu {
             System.out.println("2. s_dataset.json");
             System.out.println("3. xs_dataset.json");
             System.out.print("Sel·lecciona una opcio: ");
-            cas = sc.nextInt();
+            cas = sc.nextLine();
 
 
             switch (cas) {
-                case 1:
+                case "1":
                    json = json.concat("m_dataset.json");
                     break;
-                case 2:
+                case "2":
                     json = json.concat("s_dataset.json");
                     break;
-                case 3:
+                case "3":
                     json = json.concat("xs_dataset.json");
                     break;
                 default:
                     System.out.println("\nError, opció incorrecta\n");
 
             }
-        }while((cas != 1) &&(cas != 2) && (cas != 3));
+        }while((!cas.equals("1")) &&(!cas.equals("2")) && (!cas.equals("3")));
         return json;
     }
 }
