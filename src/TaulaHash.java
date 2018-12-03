@@ -40,7 +40,7 @@ public class TaulaHash {
         Post[] posts = new Post[taulaHash.hashtable.size()];
         
         for(int i = 0; i < taulaHash.hashtable.size() - 1; i++){
-            String key = new String("user" + i);
+            String key = "user" + i;
 
             for(int j = 0; j < hashtable.get(key).getPosts().size(); j++){
                 posts[i] = taulaHash.hashtable.get(key).getPosts().get(j);
