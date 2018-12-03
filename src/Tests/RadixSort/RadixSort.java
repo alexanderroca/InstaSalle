@@ -45,6 +45,11 @@ public class RadixSort {
         return array;
     }
 
+    /**
+     * Funcio que extreu el nombre maxim d'un array
+     * @param array : array que conte numeros
+     * @return int : numero maxim de l'array inicial
+     */
     public int getMax(int[] array){
         int max = array[0];
 

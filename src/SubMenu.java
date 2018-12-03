@@ -1,8 +1,6 @@
 import GsonObjects.Post;
 import Tests.SelectionSort.SelectionSort;
-import javafx.geometry.Pos;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -38,18 +36,22 @@ public class SubMenu {
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
                 break;
             case "2":
-                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                System.out.println("\nNo implementat\n");
                 break;
             case "3":
-                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                SelectionSort selectionSort = new SelectionSort();
                 if(opcio == 1) {
-                    SelectionSort selectionSort = new SelectionSort();
                     posts = selectionSort.selectionSortPosts(posts);
                     for(int i = 0; i < posts.length - 1; i++){
                         Date data = new Date(posts[i].getPublished() * 1000);
                         System.out.println(data);
                     }   //for
                 }
+                else{
+                    if(opcio == 2){
+
+                    }   //if
+                }   //else
                 break;
             case "4":
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
