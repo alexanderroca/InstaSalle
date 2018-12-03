@@ -1,3 +1,4 @@
+import GsonObjects.Post;
 import GsonObjects.Usuari;
 
 import java.util.Scanner;
@@ -41,15 +42,16 @@ public class Menu {
             switch (cas) {
                 case "1":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd();
+                    Post[] posts = taulaHash.extractPosts(taulaHash);
+                    submenu.mostraSubMenuOrd(posts);
                     break;
                 case "2":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd();
+                    submenu.mostraSubMenuOrd(null);
                     break;
                 case "3":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd();
+                    submenu.mostraSubMenuOrd(null);
                     break;
                 case "4":
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");

@@ -1,5 +1,7 @@
 package Tests.SelectionSort;
 
+import GsonObjects.Post;
+
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
  *
@@ -10,7 +12,6 @@ package Tests.SelectionSort;
 public class SelectionSort {
 
     public int[] selectionSort(int[] array){
-
         for(int i = 0; i < array.length - 1; i++){
 
             int index = i;
@@ -27,4 +28,20 @@ public class SelectionSort {
         return array;
     }
 
+    public Post[] selectionSortPosts(Post[] array){
+        for(int i = 0; i < array.length - 1; i++){
+
+            int index = i;
+            for (int j = index + 1; j < array.length; j++){
+                if(array[j].getPublished() < array[index].getPublished())
+                    index = j;
+
+                Post aux = array[index];
+                array[index] = array[i];
+                array[i] = aux;
+            }   //for
+        }   //for
+
+        return array;
+    }
 }

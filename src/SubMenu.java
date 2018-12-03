@@ -1,3 +1,7 @@
+import GsonObjects.Post;
+import Tests.SelectionSort.SelectionSort;
+import javafx.geometry.Pos;
+
 import java.util.Scanner;
 
 /**
@@ -13,7 +17,7 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(){
+    public void mostraSubMenuOrd(Post[] posts){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -36,6 +40,8 @@ public class SubMenu {
                 break;
             case "3":
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                SelectionSort selectionSort = new SelectionSort();
+                posts = selectionSort.selectionSortPosts(posts);
                 break;
             case "4":
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu

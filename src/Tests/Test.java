@@ -4,6 +4,10 @@ package Tests;
 import Tests.RadixSort.RadixSort;
 import Tests.SelectionSort.SelectionSort;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *Test del programa InstaSalle
  *
@@ -15,12 +19,20 @@ public class Test {
     public static void main(String[] args){
         int[] test = {3,5,7,8,1,10,100};
 
-        SelectionSort selectionSort = new SelectionSort();
-        RadixSort radixSort = new RadixSort();
+        Date itemDate = new Date(21420729);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(itemDate);
+
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DATE);
+
+        //SelectionSort selectionSort = new SelectionSort();
+        //RadixSort radixSort = new RadixSort();
 
         //test = selectionSort.selectionSort(test);
 
-        test = radixSort.radixSort(test);
+        //test = radixSort.radixSort(test);
 
         //TODO: debug QuickSort - Marc Cespedes
         /*
@@ -28,9 +40,10 @@ public class Test {
 
         QuickSort quickSort = new QuickSort();
          test = quickSort.QuicksortI(parametre);
-        */
+
          for(int i = 0; i < test.length; i++){
              System.out.println(test[i] + " ");
          }  //int
+         */
     }
 }

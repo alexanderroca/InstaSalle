@@ -1,5 +1,7 @@
+import GsonObjects.Post;
 import GsonObjects.Usuari;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Hashtable;
  */
 
 public class TaulaHash {
+    private Hashtable<String, Usuari> hashtable;
 
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
@@ -18,7 +21,7 @@ public class TaulaHash {
      * @return taula de hash on la KEY serà el nom del usuari(String) i el VALUE serà Usuari
      */
     public TaulaHash(Usuari[] usuaris) {
-        Hashtable<String, Usuari> hashtable = new Hashtable<>();
+        hashtable = new Hashtable<>();
 
         //hashtable = new Hashtable(usuaris.length);
         for(int i = 0; i < usuaris.length; i++){
@@ -26,5 +29,25 @@ public class TaulaHash {
         }   //for
 
         System.out.println("Informació inserida a una Taula de Hash");
+    }
+
+    /**
+     *
+     * @param taulaHash
+     * @return
+     */
+    public Post[] extractPosts(TaulaHash taulaHash){
+        Post[] posts = new Post[taulaHash.hashtable.size()];
+        
+        for(int i = 0; i < taulaHash.hashtable.size() - 1; i++){
+            String key = new String("user" + i);
+
+            for(int j = 0; j < hashtable.get(key).getPosts().size(); j++){
+                posts[i] = taulaHash.hashtable.get(key).getPosts().get(j);
+            }   //for
+
+        }   //for
+
+        return posts;
     }
 }
