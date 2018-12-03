@@ -1,3 +1,5 @@
+import Sort.SelectionSort;
+
 import java.util.Scanner;
 
 /**
@@ -36,13 +38,15 @@ public class SubMenu {
                 break;
             case 3:
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                SelectionSort selectionSort = new SelectionSort();
+                posts = selectionSort.selectionSortPosts(posts);
+
                 break;
             case 4:
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
-
         }
     }
 
