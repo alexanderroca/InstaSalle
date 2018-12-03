@@ -1,3 +1,4 @@
+import GsonObjects.Post;
 import GsonObjects.Usuari;
 
 import java.util.Scanner;
@@ -19,7 +20,7 @@ public class Menu {
         SubMenu submenu = new SubMenu();
         TaulaHash taulaHash;
 
-        int cas;
+        String cas;
         Scanner sc = new Scanner(System.in);
 
         llegeixJSON llegeixJSON = new llegeixJSON();
@@ -35,30 +36,30 @@ public class Menu {
             System.out.println("3. Segons combinació de prioritats");
             System.out.println("4. Sortir\n");
             System.out.print("Sel·lecciona una opcio: ");
-            cas = sc.nextInt();
+            cas = sc.nextLine();
 
 
             switch (cas) {
-                case 1:
+                case "1":
                     System.out.println("\nNo implementat\n");
-                    //TODO: passar els camps: opcio d'ordenacio, taulaHash
-                    submenu.mostraSubMenuOrd();
+                    Post[] posts = taulaHash.extractPosts(taulaHash);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
                     break;
-                case 2:
+                case "2":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd();
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), null);
                     break;
-                case 3:
+                case "3":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd();
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas),null);
                     break;
-                case 4:
+                case "4":
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");
                     break;
                 default:
                     System.out.println("\nError, opció incorrecta\n");
 
             }
-        }while(cas != 4);
+        }while(!cas.equals("4"));
     }
 }
