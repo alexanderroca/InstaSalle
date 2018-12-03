@@ -42,13 +42,13 @@ public class SubMenu {
                 System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
                 SelectionSort selectionSort = new SelectionSort();
                 posts = selectionSort.selectionSortPosts(posts);
+
                 break;
             case "4":
                 System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
-
         }
     }
 
