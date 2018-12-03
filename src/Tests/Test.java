@@ -1,6 +1,7 @@
 package Tests;
 
-
+import Tests.Quicksort.Parametre;
+import Tests.Quicksort.QuickSort;
 import Tests.RadixSort.RadixSort;
 import Tests.SelectionSort.SelectionSort;
 
@@ -26,7 +27,7 @@ public class Test {
 
         test = selectionSort.selectionSort(test);
 
-        test = radixSort.radixSort(test);
+        //test = radixSort.radixSort(test);
 
         //TODO: debug QuickSort - Marc Cespedes
         /*
