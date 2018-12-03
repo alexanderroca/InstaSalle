@@ -4,6 +4,7 @@ package Tests;
 import Tests.RadixSort.RadixSort;
 import Tests.SelectionSort.SelectionSort;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,9 +24,22 @@ public class Test {
         Calendar cal = Calendar.getInstance();
         cal.setTime(itemDate);
 
+        Date itemDate2 = new Date(21420729);
+        Calendar cal2 = Calendar.getInstance();
+        cal.setTime(itemDate2);
+
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DATE);
+
+        if(itemDate.getTime() < itemDate2.getTime()){
+            System.out.println(cal.get(Calendar.DATE) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.YEAR));
+            System.out.println(cal2.get(Calendar.DATE) + "-" + cal2.get(Calendar.MONTH) + "-" + cal2.get(Calendar.YEAR));
+        }   //if
+        else{
+            System.out.println(cal2.get(Calendar.DATE) + "-" + cal2.get(Calendar.MONTH) + "-" + cal2.get(Calendar.YEAR));
+            System.out.println(cal.get(Calendar.DATE) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.YEAR));
+        }
 
         //SelectionSort selectionSort = new SelectionSort();
         //RadixSort radixSort = new RadixSort();
