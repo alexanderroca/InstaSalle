@@ -46,10 +46,8 @@ public class SubMenu {
                     SelectionSort selectionSort = new SelectionSort();
                     posts = selectionSort.selectionSortPosts(posts);
                     for(int i = 0; i < posts.length - 1; i++){
-                        Date data = new Date(posts[i].getPublished());
-                        Calendar cal = Calendar.getInstance();
-                        cal.setTime(data);
-                        System.out.println(cal.get(Calendar.DATE) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.YEAR));
+                        Date data = new Date(posts[i].getPublished() * 1000);
+                        System.out.println(data);
                     }   //for
                 }
                 break;
