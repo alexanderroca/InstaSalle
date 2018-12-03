@@ -13,6 +13,7 @@ import java.util.Hashtable;
 
 public class TaulaHash {
     private Hashtable<String, Usuari> hashtable;
+    public static final double RADI_TERRA = 6372.8;
 
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
@@ -49,5 +50,19 @@ public class TaulaHash {
         }   //for
 
         return posts;
+    }
+
+    public double calculaDistancia(double latitudO, double longitudO, double latitudF, double longitudF){
+        double dLatitud = Math.toRadians(latitudF - latitudO);
+        double dLongitud = Math.toRadians(longitudF - longitudO);
+
+        latitudO = Math.toRadians(latitudO);
+        latitudF = Math.toRadians(latitudF);
+
+        double var1 = Math.pow(Math.sin(dLatitud / 2), 2) + Math.pow(Math.sin(dLongitud / 2), 2) *
+                    Math.cos(latitudF);
+        double var2 = 2 * Math.asin(Math.sqrt(var1));
+
+        return RADI_TERRA * var2;    //distancia
     }
 }

@@ -3,6 +3,7 @@ package Tests.SelectionSort;
 import GsonObjects.Post;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -40,7 +41,7 @@ public class SelectionSort {
             for (int j = index + 1; j < array.length - 1; j++){
 
                 Timestamp tmp2 = new Timestamp(array[j].getPublished());
-                if(tmp1.compareTo(tmp2) < 0)
+                if(tmp1.before(tmp2))
                     index = j;
 
                 Post aux = array[index];
