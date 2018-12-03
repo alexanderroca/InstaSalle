@@ -5,6 +5,8 @@ import Tests.Quicksort.QuickSort;
 import Tests.RadixSort.RadixSort;
 import Tests.SelectionSort.SelectionSort;
 
+import java.sql.Timestamp;
+
 /**
  *Test del programa InstaSalle
  *
@@ -15,6 +17,10 @@ import Tests.SelectionSort.SelectionSort;
 public class Test {
     public static void main(String[] args){
         int[] test = {3,5,7,8,1,10,100};
+
+        Timestamp tmp = new Timestamp(9626343);
+
+        System.out.println(tmp);
 
         SelectionSort selectionSort = new SelectionSort();
         RadixSort radixSort = new RadixSort();
