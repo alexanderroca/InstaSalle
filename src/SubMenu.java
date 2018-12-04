@@ -43,8 +43,7 @@ public class SubMenu {
                 if(opcio == 1) {
                     posts = selectionSort.selectionSortPosts(posts);
                     for(int i = 0; i < posts.length - 1; i++){
-                        Date data = new Date(posts[i].getPublished() * 1000);
-                        System.out.println(data);
+                        System.out.println(posts[i].getPublished());
                     }   //for
                 }
                 else{
