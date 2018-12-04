@@ -2,6 +2,8 @@ package Tests.RadixSort;
 
 import GsonObjects.Post;
 
+import java.io.IOException;
+
 /**
  *Classe que defineix el mètode d'ordenació RadixSort
  *
@@ -26,7 +28,7 @@ public class RadixSort {
 
         long max = getMaxPost(posts);
 
-        for(int i = 1; max / i > 0; i *= 10){
+        for(long i = 1; max / i > 0; i *= 10){
             posts = sortPosts(i, posts);
         }   //for
 
@@ -38,7 +40,7 @@ public class RadixSort {
         int[] count = new int[10];
 
         //conto les vegades que es repeteix el nombre del pes
-        for(int i = 0; i < array.length; i++){
+        for(int i = 0; i < array.length - 1; i++){
             count[(array[i] / pes) % 10]++;
         }   //for
 
@@ -58,22 +60,22 @@ public class RadixSort {
         return array;
     }
 
-    public Post[] sortPosts(int pes, Post[] array){
+    public Post[] sortPosts(long pes, Post[] array){
         Post[] aux = new Post[array.length];
         int[] count = new int[10];
 
         //conto les vegades que es repeteix el nombre del pes
         for(int i = 0; i < array.length; i++){
-            count[(int) ((array[i].getPublished() / pes) % 10)]++;
+            count[Math.toIntExact((array[i].getPublished() / pes) % 10)]++;
         }   //for
 
         for(int i = 1; i < 10; i++){
             count[i] += count[i - 1];
         }   //for
 
-        for(int i = array.length - 1; i >= 0; i--){
-            aux[count[(int) ((array[i].getPublished() / pes) % 10)] - 1] = array[i];
-            count[(int) ((array[i].getPublished() / pes) % 10)]--;
+        for (int i = array.length - 1; i >= 0; i--) {
+            aux[count[Math.toIntExact((array[i].getPublished() / pes) % 10)] - 1] = array[i];
+            count[Math.toIntExact((array[i].getPublished() / pes) % 10)]--;
         }   //for
 
         for(int i = 0; i < array.length; i++){
