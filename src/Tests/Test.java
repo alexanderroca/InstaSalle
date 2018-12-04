@@ -24,13 +24,13 @@ public class Test {
         System.out.println(stamp.toString());
 
 
-        SelectionSort selectionSort = new SelectionSort();
-        //RadixSort radixSort = new RadixSort();
+        //SelectionSort selectionSort = new SelectionSort();
+        RadixSort radixSort = new RadixSort();
 
-        test = selectionSort.selectionSort(test);
+        //test = selectionSort.selectionSort(test);
+
+        test = radixSort.radixSort(test);
 /*
-        //test = radixSort.radixSort(test);
-
         //TODO: debug QuickSort - Marc Cespedes
 
         Parametre parametre = new Parametre(test);
@@ -39,7 +39,7 @@ public class Test {
          test = quickSort.QuicksortI(parametre);
 */
          for(int i = 0; i < test.length; i++){
-             System.out.println(test[i] + " ");
+             System.out.println(test[i]);
          }  //int
 
     }
