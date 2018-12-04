@@ -13,7 +13,7 @@ import java.util.Hashtable;
 
 public class TaulaHash {
     private Hashtable<String, Usuari> hashtable;
-    public static final double RADI_TERRA = 6372.8;
+    public static final double RADI_TERRA = 6371;
 
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
