@@ -28,6 +28,8 @@ public class Menu {
 
         taulaHash = new TaulaHash(usuaris);
 
+        Post[] posts = taulaHash.extractPosts(taulaHash);
+
         // Pintem el menú
         do{
             System.out.println("Menu:");
@@ -42,12 +44,11 @@ public class Menu {
             switch (cas) {
                 case "1":
                     System.out.println("\nNo implementat\n");
-                    Post[] posts = taulaHash.extractPosts(taulaHash);
                     submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
                     break;
                 case "2":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), null);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
                     break;
                 case "3":
                     System.out.println("\nNo implementat\n");

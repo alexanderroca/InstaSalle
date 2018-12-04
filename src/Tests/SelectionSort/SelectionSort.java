@@ -3,6 +3,7 @@ package Tests.SelectionSort;
 import GsonObjects.Post;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -19,7 +20,7 @@ public class SelectionSort {
         for(int i = 0; i < array.length - 1; i++){
 
             int index = i;
-            for (int j = index + 1; j < array.length; j++){
+            for (int j = i + 1; j < array.length; j++){
                 if(array[j] < array[index])
                     index = j;
 
@@ -32,20 +33,24 @@ public class SelectionSort {
         return array;
     }
 
+
+    /**
+     * Funcio que ordena els posts segons la seva data de publicacio
+     * @param array : array de Post
+     * @return array de Post ordenat segons la seva data de publicacio
+     */
     public Post[] selectionSortPosts(Post[] array){
         for(int i = 0; i < array.length - 2; i++){
 
-            Timestamp tmp1 = new Timestamp(array[i].getPublished());
             int index = i;
-            for (int j = index + 1; j < array.length - 1; j++){
+            for (int j = i + 1; j < array.length - 1; j++){
 
-                Timestamp tmp2 = new Timestamp(array[j].getPublished());
-                if(tmp1.compareTo(tmp2) < 0)
+                if(array[j].getPublished() > array[index].getPublished())
                     index = j;
 
-                Post aux = array[index];
-                array[index] = array[i];
-                array[i] = aux;
+                Post aux = array[i];
+                array[i] = array[index];
+                array[index] = aux;
             }   //for
         }   //for
 
