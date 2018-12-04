@@ -1,5 +1,7 @@
 package Tests.RadixSort;
 
+import GsonObjects.Post;
+
 /**
  *Classe que defineix el mètode d'ordenació RadixSort
  *
@@ -18,6 +20,17 @@ public class RadixSort {
         }   //for
 
         return array;
+    }
+
+    public Post[] radixSortPost(Post[] posts){
+
+        long max = getMaxPost(posts);
+
+        for(int i = 1; max / i > 0; i *= 10){
+            posts = sortPosts(i, posts);
+        }   //for
+
+        return posts;
     }
 
     public int[] sort(int pes, int[] array){
@@ -45,6 +58,31 @@ public class RadixSort {
         return array;
     }
 
+    public Post[] sortPosts(int pes, Post[] array){
+        Post[] aux = new Post[array.length];
+        int[] count = new int[10];
+
+        //conto les vegades que es repeteix el nombre del pes
+        for(int i = 0; i < array.length; i++){
+            count[(int) ((array[i].getPublished() / pes) % 10)]++;
+        }   //for
+
+        for(int i = 1; i < 10; i++){
+            count[i] += count[i - 1];
+        }   //for
+
+        for(int i = array.length - 1; i >= 0; i--){
+            aux[count[(int) ((array[i].getPublished() / pes) % 10)] - 1] = array[i];
+            count[(int) ((array[i].getPublished() / pes) % 10)]--;
+        }   //for
+
+        for(int i = 0; i < array.length; i++){
+            array[i] = aux[i];
+        }   //for
+
+        return array;
+    }
+
     /**
      * Funcio que extreu el nombre maxim d'un array
      * @param array : array que conte numeros
@@ -57,6 +95,19 @@ public class RadixSort {
 
             if(max < array[i]){
                 max = array[i];
+            }   //if
+        }   //for
+
+        return max;
+    }
+
+    public long getMaxPost(Post[] posts){
+        long max = posts[0].getPublished();
+
+        for(int i = 1; i < posts.length - 1; i++){
+
+            if(max < posts[i].getPublished()){
+                max = posts[i].getPublished();
             }   //if
         }   //for
 
