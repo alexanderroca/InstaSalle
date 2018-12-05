@@ -1,8 +1,7 @@
 import GsonObjects.Post;
-import Tests.RadixSort.RadixSort;
-import Tests.SelectionSort.SelectionSort;
+import Sort.RadixSort;
+import Sort.SelectionSort;
 
-import java.util.Date;
 import java.util.Scanner;
 
 /**
