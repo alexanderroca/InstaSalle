@@ -25,10 +25,11 @@ public class MergeSort {
      }
 
      public int[] merge(int[] a, int i, int mig, int j){
-        int[] b = null;
-        int k1 = i, k2 = mig + 1, cursor = 1, kr;
+        int[] b = new int[a.length];
+        int k1 = i, k2 = mig + 1, cursor = 0, kr;
 
-        while((k1 <= mig) && (k2<=j)){
+        while (k1 <= mig && k2 <= j){
+
             if(a[k1] <= a[k2]){
                 b[cursor] = a[k1];
                 k1++;
@@ -48,14 +49,14 @@ public class MergeSort {
             cursor++;
         }
 
-         while(k1 <= mig){
+         while(k2 <= j){
              b[cursor] = a[k2];
-             k1++;
+             k2++;
              cursor++;
          }
 
-         cursor = 1;
-         kr = 1;
+         cursor = 0;
+         kr = i;
 
          while(kr <= j){
              a[kr] = b[cursor];

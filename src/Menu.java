@@ -20,6 +20,8 @@ public class Menu {
         SubMenu submenu = new SubMenu();
         TaulaHash taulaHash;
 
+        double latitudO, longitudO;
+
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -43,16 +45,19 @@ public class Menu {
 
             switch (cas) {
                 case "1":
-                    System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, 0, 0);
                     break;
                 case "2":
-                    System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts);
+                    System.out.print("Insereix-hi latitud: ");
+                    latitudO = sc.nextDouble();
+                    System.out.print("Insereix-hi longitud: ");
+                    longitudO = sc.nextDouble();
+
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, latitudO, longitudO);
                     break;
                 case "3":
                     System.out.println("\nNo implementat\n");
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas),null);
+                    submenu.mostraSubMenuOrd(Integer.valueOf(cas),null, 0, 0);
                     break;
                 case "4":
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");

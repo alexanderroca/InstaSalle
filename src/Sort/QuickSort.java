@@ -32,7 +32,12 @@ public class QuickSort {
     }
 
     public Parametre particio (Parametre parametre){
-        int mig = (parametre.getI() + parametre.getJ())/2, pivot = parametre.getAPos(mig), tmp, s = parametre.getI(), t = parametre.getJ();
+        int mig, pivot, tmp, s, t;
+
+        mig = (parametre.getI() + parametre.getJ())/2;
+        pivot = parametre.getAPos(mig);
+        s = parametre.getI();
+        t = parametre.getJ();
 
         while(s<=t){
             while(parametre.getAPos(s) < pivot){
@@ -45,10 +50,11 @@ public class QuickSort {
 
             if(s<t){
                 tmp = parametre.getAPos(s);
-                parametre.setAPos(s,parametre.getAPos(t));
-                parametre.setAPos(s,tmp);
+                parametre.setAPos(s, parametre.getAPos(t));
+                parametre.setAPos(t,tmp);
                 s = s+1;
                 t = t-1;
+
             }
 
             if(s == t){
@@ -56,6 +62,8 @@ public class QuickSort {
                 t--;
             }
         }
+        parametre.setI(s);
+        parametre.setJ(t);
         return parametre;
     }
 }

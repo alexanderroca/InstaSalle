@@ -12,6 +12,12 @@ public class Parametre {
     private int i;
     private int j;
 
+    public Parametre(int[] a) {
+        this.a = a;
+        i = 0;
+        j = a.length - 1;
+    }
+
     public int[] getA() {
         return a;
     }
@@ -33,11 +39,11 @@ public class Parametre {
     }
 
     public void setI(int s) {
-        this.i = i;
+        this.i = s;
     }
 
     public void setJ(int t) {
-        this.j = j;
+        this.j = t;
     }
 
     public void setAPos(int pos, int num){
