@@ -1,7 +1,7 @@
 import GsonObjects.Post;
-import Tests.SelectionSort.SelectionSort;
+import Sort.RadixSort;
+import Sort.SelectionSort;
 
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -17,7 +17,7 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(int opcio, Post[] posts){
+    public void mostraSubMenuOrd(int opcio, Post[] posts, double latitudO, double longitudO){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -30,10 +30,9 @@ public class SubMenu {
         System.out.print("Sel·lecciona una opcio: ");
         cas = sc.nextLine();
 
-
         switch (cas) {
             case "1":
-                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                System.out.println("\nNo implementat\n");
                 break;
             case "2":
                 System.out.println("\nNo implementat\n");
@@ -48,12 +47,18 @@ public class SubMenu {
                 }
                 else{
                     if(opcio == 2){
-
+                        posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
                     }   //if
                 }   //else
                 break;
             case "4":
-                System.out.println("\nNo implementat\n");  //TODO: falten passar variables a submenu
+                RadixSort radixSort = new RadixSort();
+                if(opcio == 1){
+                    posts = radixSort.radixSortPost(posts);
+                    for(int i = posts.length - 1; i > 0; i--){
+                        System.out.println(posts[i].getPublished());
+                    }   //for
+                }   //if
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
