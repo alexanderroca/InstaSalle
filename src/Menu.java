@@ -50,6 +50,7 @@ public class Menu {
                 case "2":
                     System.out.print("Insereix-hi latitud: ");
                     latitudO = sc.nextDouble();
+                    System.out.print("Insereix-hi longitud: ");
                     longitudO = sc.nextDouble();
 
                     submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, latitudO, longitudO);

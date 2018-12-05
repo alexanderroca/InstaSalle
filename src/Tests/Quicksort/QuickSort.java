@@ -1,4 +1,4 @@
-package Sort;
+package Tests.Quicksort;
 
 /**
  *Classe que defineix el mètode d'ordenació Quicksort
@@ -40,21 +40,20 @@ public class QuickSort {
         t = parametre.getJ();
 
         while(s<=t){
-            while(parametre.getAPos(s) < pivot){
+            while(parametre.getAPos(s) < pivot && parametre.getI() < parametre.getA().length - 1){
                 s++;
             }
 
-            while(parametre.getAPos(t) > pivot){
+            while(parametre.getAPos(t) > pivot && parametre.getJ() > 1){
                 t--;
             }
 
             if(s<t){
                 tmp = parametre.getAPos(s);
-                parametre.setAPos(s, parametre.getAPos(t));
-                parametre.setAPos(t,tmp);
+                parametre.setAPos(s,parametre.getAPos(t));
+                parametre.setAPos(s,tmp);
                 s = s+1;
                 t = t-1;
-
             }
 
             if(s == t){
@@ -62,6 +61,7 @@ public class QuickSort {
                 t--;
             }
         }
+
         parametre.setI(s);
         parametre.setJ(t);
         return parametre;

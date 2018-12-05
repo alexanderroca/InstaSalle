@@ -1,6 +1,10 @@
-package Sort;
+package Tests.SelectionSort;
 
 import GsonObjects.Post;
+
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
@@ -36,10 +40,10 @@ public class SelectionSort {
      * @return array de Post ordenat segons la seva data de publicacio
      */
     public Post[] selectionSortPosts(Post[] array){
-        for(int i = 0; i < array.length - 1; i++){
+        for(int i = 0; i < array.length - 2; i++){
 
             int index = i;
-            for (int j = i + 1; j < array.length; j++){
+            for (int j = i + 1; j < array.length - 1; j++){
 
                 if(array[j].getPublished() > array[index].getPublished())
                     index = j;
@@ -48,36 +52,6 @@ public class SelectionSort {
                 array[i] = array[index];
                 array[index] = aux;
             }   //for
-        }   //for
-
-        return array;
-    }
-
-    /**
-     *
-     * @param array
-     * @param latitudO
-     * @param longitudO
-     * @return
-     */
-    public Post[] selectionSortProximity(Post[] array, double latitudO, double longitudO){
-        for(int i = 0; i < array.length - 1; i++){
-
-            int index = i;
-            for (int j = i + 1; j < array.length; j++){
-
-                if(Math.abs(array[j].calculaDistancia(latitudO, longitudO, array[j].getLocation()[0], array[j].getLocation()[1]))
-                        < Math.abs(array[index].calculaDistancia(latitudO, longitudO, array[index].getLocation()[0], array[index].getLocation()[1])))
-                    index = j;
-
-                Post aux = array[i];
-                array[i] = array[index];
-                array[index] = aux;
-            }   //for
-        }   //for
-
-        for(int i = 0; i < array.length; i++){
-            System.out.println(Math.abs(array[i].calculaDistancia(latitudO, longitudO, array[i].getLocation()[0], array[i].getLocation()[1])));
         }   //for
 
         return array;

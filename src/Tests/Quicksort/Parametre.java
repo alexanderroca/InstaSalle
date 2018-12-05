@@ -1,4 +1,4 @@
-package Sort;
+package Tests.Quicksort;
 
 /**
  *Classe auxiliar que defineix els camps necessaris per efectuar el mètode d'ordenació Quicksort
@@ -39,11 +39,11 @@ public class Parametre {
     }
 
     public void setI(int s) {
-        this.i = s;
+        this.i = i;
     }
 
     public void setJ(int t) {
-        this.j = t;
+        this.j = j;
     }
 
     public void setAPos(int pos, int num){
