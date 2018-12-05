@@ -53,6 +53,13 @@ public class SelectionSort {
         return array;
     }
 
+    /**
+     *
+     * @param array
+     * @param latitudO
+     * @param longitudO
+     * @return
+     */
     public Post[] selectionSortProximity(Post[] array, double latitudO, double longitudO){
         for(int i = 0; i < array.length - 1; i++){
 
@@ -60,13 +67,17 @@ public class SelectionSort {
             for (int j = i + 1; j < array.length; j++){
 
                 if(Math.abs(array[j].calculaDistancia(latitudO, longitudO, array[j].getLocation()[0], array[j].getLocation()[1]))
-                        > Math.abs(array[index].calculaDistancia(latitudO, longitudO, array[index].getLocation()[0], array[index].getLocation()[1])))
+                        < Math.abs(array[index].calculaDistancia(latitudO, longitudO, array[index].getLocation()[0], array[index].getLocation()[1])))
                     index = j;
 
                 Post aux = array[i];
                 array[i] = array[index];
                 array[index] = aux;
             }   //for
+        }   //for
+
+        for(int i = 0; i < array.length; i++){
+            System.out.println(Math.abs(array[i].calculaDistancia(latitudO, longitudO, array[i].getLocation()[0], array[i].getLocation()[1])));
         }   //for
 
         return array;
