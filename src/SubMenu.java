@@ -17,7 +17,7 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(int opcio, Post[] posts){
+    public void mostraSubMenuOrd(int opcio, Post[] posts, double latitudO, double longitudO){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -30,10 +30,9 @@ public class SubMenu {
         System.out.print("Sel·lecciona una opcio: ");
         cas = sc.nextLine();
 
-
         switch (cas) {
             case "1":
-                System.out.println("\nNo implementat\n");   //TODO: falten passar variables a submenu
+                System.out.println("\nNo implementat\n");
                 break;
             case "2":
                 System.out.println("\nNo implementat\n");
@@ -48,7 +47,7 @@ public class SubMenu {
                 }
                 else{
                     if(opcio == 2){
-
+                        posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
                     }   //if
                 }   //else
                 break;

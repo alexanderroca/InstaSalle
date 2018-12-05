@@ -8,6 +8,8 @@ package GsonObjects;
  */
 
 public class Post {
+    public static final double RADI_TERRA = 6371;
+
     private int id;
     private long published;
     private double[] location;
@@ -39,4 +41,25 @@ public class Post {
         return commented_by;
     }
 
+    /**
+     * Funcio que realitza la formual de Haversine
+     * @param latitudO : double que indica la latitude inicial
+     * @param longitudO : double que indica la longitud inicial
+     * @param latitudF : double que indica la latitud final
+     * @param longitudF : double que indica la longitud final
+     * @return double que indica la distancia
+     */
+    public double calculaDistancia(double latitudO, double longitudO, double latitudF, double longitudF){
+        double dLatitud = Math.toRadians(latitudF - latitudO);
+        double dLongitud = Math.toRadians(longitudF - longitudO);
+
+        latitudO = Math.toRadians(latitudO);
+        latitudF = Math.toRadians(latitudF);
+
+        double var1 = Math.pow(Math.sin(dLatitud / 2), 2) + Math.pow(Math.sin(dLongitud / 2), 2) *
+                Math.cos(latitudO) * Math.cos(latitudF);
+        double var2 = 2 * Math.asin(Math.sqrt(var1));
+
+        return RADI_TERRA * var2;    //distancia
+    }
 }
