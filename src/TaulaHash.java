@@ -57,13 +57,18 @@ public class TaulaHash {
     public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username){
         ArrayList<Post> interestingPosts = new ArrayList<>();
 
+        for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
+
+            interestingPosts.addAll(hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts());
+        }   //for
+
+        return interestingPosts;
+    }
+
+    public Interessos extractInteressos(Hashtable<String, Usuari> hashtable, String username){
         Interessos interessos = new Interessos();
 
         for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
-            int visits, likes, comments;
-            visits = hashtable.get(username).getConnections().get(i).getVisits();
-            likes = hashtable.get(username).getConnections().get(i).getLikes();
-            comments = hashtable.get(username).getConnections().get(i).getComments();
 
             for(int j = 0;
                 j < hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts().size();
@@ -81,6 +86,7 @@ public class TaulaHash {
             }   //for
         }   //for
 
-        return interestingPosts;
+        return interessos;
     }
+
 }
