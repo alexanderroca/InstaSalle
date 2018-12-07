@@ -63,10 +63,6 @@ public class SelectionSort {
             }   //for
         }   //for
 
-        for(int i = 0; i < array.size(); i++){
-            System.out.println(array.get(i).getCategory());
-        }   //for
-
         return array;
     }
 

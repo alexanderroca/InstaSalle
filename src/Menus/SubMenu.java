@@ -44,9 +44,6 @@ public class SubMenu {
                 SelectionSort selectionSort = new SelectionSort();
                 if(opcio == 1) {
                     posts = selectionSort.selectionSortPosts(posts);
-                    for(int i = 0; i < posts.size() - 1; i++){
-                        System.out.println(posts.get(i).getPublished());
-                    }   //for
                 }
                 else{
                     if(opcio == 2){
