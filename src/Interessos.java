@@ -15,7 +15,7 @@ public class Interessos {
         return num;
     }
 
-    public void setNum(int[] num) {
-        this.num = num;
+    public void setNum(int num, int pos) {
+        this.num[pos] = num;
     }
 }

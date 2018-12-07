@@ -64,9 +64,22 @@ public class TaulaHash {
             likes = hashtable.get(username).getConnections().get(i).getLikes();
             comments = hashtable.get(username).getConnections().get(i).getComments();
 
-            for(int ){
+            for(int j = 0;
+                j < hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts().size();
+                j++){
 
-            }
+                for(int k = 0; k < interessos.getCategory().length; k++){
+
+                    if(hashtable.get(hashtable.get(username).getConnections()
+                            .get(i).getUsername()).getPosts().get(j).getCategory().equals(interessos.getCategory()[k])){
+
+                        interessos.setNum(interessos.getNum()[k]++, k);
+                    }   //if
+                }   //for
+
+            }   //for
         }   //for
+
+        return interestingPosts;
     }
 }
