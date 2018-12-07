@@ -1,6 +1,6 @@
+import Estructures_Auxiliars.LlegeixJSON;
+import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Usuari;
-
-import java.util.ArrayList;
 
 /**
  *Test del programa InstaSalle
@@ -18,5 +18,8 @@ public class Test {
         TaulaHash taulaHash = new TaulaHash(usuaris);
 
         taulaHash.extractPostsFromUser(taulaHash.getHashtable(), "claudia.peiro");
+        taulaHash.extractInteressos(taulaHash.getHashtable(), "claudia.peiro");
+
+
     }
 }
