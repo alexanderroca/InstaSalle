@@ -1,4 +1,3 @@
-import GsonObjects.Post;
 import GsonObjects.Usuari;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class Menu {
         String cas;
         Scanner sc = new Scanner(System.in);
 
-        llegeixJSON llegeixJSON = new llegeixJSON();
+        LlegeixJSON llegeixJSON = new LlegeixJSON();
         Usuari[] usuaris = llegeixJSON.readJSON(submenu.mostraSubMenuJson());
 
         taulaHash = new TaulaHash(usuaris);

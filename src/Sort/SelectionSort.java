@@ -96,7 +96,7 @@ public class SelectionSort {
             int index = i;
             for (int j = i + 1; j < array.size(); j++){
 
-                if()
+          //      if()
                     index = j;
 
                 Post aux = array.get(i);

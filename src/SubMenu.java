@@ -51,7 +51,7 @@ public class SubMenu {
                         posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
                     }   //if
                     else{
-
+                        
                     }   //else
                 }   //else
                 break;
