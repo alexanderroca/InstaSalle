@@ -3,6 +3,7 @@ package Sort;
 import Estructures_Auxiliars.Interessos;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
+import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -19,7 +20,7 @@ public class SelectionSort {
     /**
      * Funcio que ordena els posts segons la seva data de publicacio
      * @param array : array de Post
-     * @return array de Post ordenat segons la seva data de publicacio
+     * @return ArrayList<Post> : posts ordenat segons la seva data de publicacio
      */
     public ArrayList<Post> selectionSortPosts(ArrayList<Post> array){
         for(int i = 0; i < array.size(); i++){
@@ -69,23 +70,31 @@ public class SelectionSort {
         return array;
     }
 
-    public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username, Interessos interessos){
-        ArrayList<Post> array = new ArrayList<>();
+    /**
+     *
+     * @param hashtable
+     * @param username
+     * @param interessos
+     * @param posts
+     * @return
+     */
+    public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
+        ArrayList<Post> posts){
 
-        for(int i = 0; i < array.size(); i++){
+        for(int i = 0; i < posts.size(); i++){
 
             int index = i;
-            for (int j = i + 1; j < array.size(); j++){
+            for (int j = i + 1; j < posts.size(); j++){
 
           //      if()
                     index = j;
 
-                Post aux = array.get(i);
-                array.set(i, array.get(index));
-                array.set(index, aux);
+                Post aux = posts.get(i);
+                posts.set(i, posts.get(index));
+                posts.set(index, aux);
             }   //for
         }   //for
 
-        return array;
+        return posts;
     }
 }

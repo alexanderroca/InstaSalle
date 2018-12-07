@@ -40,7 +40,7 @@ public class TaulaHash {
     /**
      *Funcio que extreu tots els Post de la taula de hash
      * @param taulaHash : HashMap que conté tots els Usuaris
-     * @return array de Post
+     * @return ArrayList<Post> : conté tots els posts
      */
     public ArrayList<Post> extractPosts(TaulaHash taulaHash){
         ArrayList<Post> posts = new ArrayList<>();
@@ -56,6 +56,12 @@ public class TaulaHash {
         return posts;
     }
 
+    /**
+     * Funcio que extreu tots els Posts dels contactes de l'usuari
+     * @param hashtable : HashTable que conté totes les dades
+     * @param username : nom d'usuari
+     * @return ArrayList<Post> : tots els posts que ha intervingut l'usuari
+     */
     public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username){
         ArrayList<Post> interestingPosts = new ArrayList<>();
 
@@ -67,6 +73,12 @@ public class TaulaHash {
         return interestingPosts;
     }
 
+    /**
+     * Funcio que contabilitza els interessos del usuari
+     * @param hashtable : HashTable que conte totes les dades
+     * @param username : nom d'usuari
+     * @return Interessos : objecte que indica la quantitat de tipus de posts que ha visitat
+     */
     public Interessos extractInteressos(Hashtable<String, Usuari> hashtable, String username){
         Interessos interessos = new Interessos();
 
