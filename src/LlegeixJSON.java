@@ -13,7 +13,7 @@ import java.io.FileReader;
  * @version 17/11/2018 - 0.1
  */
 
-public class llegeixJSON {
+public class LlegeixJSON {
 
     /**
      *Funció que realitza la lectura del JSON (gràcies a funcionalitats de la llibreria Gson que està en la

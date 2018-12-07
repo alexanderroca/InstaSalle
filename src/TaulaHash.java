@@ -13,8 +13,11 @@ import java.util.Hashtable;
 
 public class TaulaHash {
     private Hashtable<String, Usuari> hashtable;
-    private final String[] CATEGORIES = {"landscape", "food", "sports", "style", "animals", "tv_shows", "fitness", "science_tech",
-            "music", "travel", "architecture"};
+
+    public Hashtable<String, Usuari> getHashtable() {
+        return hashtable;
+    }
+
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
      *
@@ -56,8 +59,6 @@ public class TaulaHash {
 
         Interessos interessos = new Interessos();
 
-        interessos.setCategory(CATEGORIES);
-
         for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
             int visits, likes, comments;
             visits = hashtable.get(username).getConnections().get(i).getVisits();
@@ -68,12 +69,12 @@ public class TaulaHash {
                 j < hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts().size();
                 j++){
 
-                for(int k = 0; k < interessos.getCategory().length; k++){
+                for(int k = 0; k < interessos.getCATEGORIES().length; k++){
 
                     if(hashtable.get(hashtable.get(username).getConnections()
-                            .get(i).getUsername()).getPosts().get(j).getCategory().equals(interessos.getCategory()[k])){
+                            .get(i).getUsername()).getPosts().get(j).getCategory().equals(interessos.getCATEGORIES()[k])){
 
-                        interessos.setNum(interessos.getNum()[k]++, k);
+                        interessos.setNum(interessos.getNum()[k] + 1, k);
                     }   //if
                 }   //for
 
