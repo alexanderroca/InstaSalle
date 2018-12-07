@@ -2,6 +2,7 @@ import GsonObjects.Post;
 import Sort.RadixSort;
 import Sort.SelectionSort;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,7 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(int opcio, Post[] posts, double latitudO, double longitudO){
+    public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -41,8 +42,8 @@ public class SubMenu {
                 SelectionSort selectionSort = new SelectionSort();
                 if(opcio == 1) {
                     posts = selectionSort.selectionSortPosts(posts);
-                    for(int i = 0; i < posts.length - 1; i++){
-                        System.out.println(posts[i].getPublished());
+                    for(int i = 0; i < posts.size() - 1; i++){
+                        System.out.println(posts.get(i).getPublished());
                     }   //for
                 }
                 else{
@@ -55,8 +56,8 @@ public class SubMenu {
                 RadixSort radixSort = new RadixSort();
                 if(opcio == 1){
                     posts = radixSort.radixSortPost(posts);
-                    for(int i = posts.length - 1; i > 0; i--){
-                        System.out.println(posts[i].getPublished());
+                    for(int i = posts.size() - 1; i > 0; i--){
+                        System.out.println(posts.get(i).getPublished());
                     }   //for
                 }   //if
                 break;
@@ -79,6 +80,7 @@ public class SubMenu {
             System.out.println("1. m_dataset.json");
             System.out.println("2. s_dataset.json");
             System.out.println("3. xs_dataset.json");
+            System.out.println("4. test_distancies.json");
             System.out.print("Sel·lecciona una opcio: ");
             cas = sc.nextLine();
 
@@ -93,11 +95,13 @@ public class SubMenu {
                 case "3":
                     json = json.concat("xs_dataset.json");
                     break;
+                case "4":
+                    json = json.concat("test_distancies.json");
                 default:
                     System.out.println("\nError, opció incorrecta\n");
 
             }
-        }while((!cas.equals("1")) &&(!cas.equals("2")) && (!cas.equals("3")));
+        }while((!cas.equals("1")) &&(!cas.equals("2")) && (!cas.equals("3")) && (!cas.equals("4")));
         return json;
     }
 }
