@@ -1,3 +1,5 @@
+package Estructures_Auxiliars;
+
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 

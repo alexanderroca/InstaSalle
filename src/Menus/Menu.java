@@ -1,3 +1,7 @@
+package Menus;
+
+import Estructures_Auxiliars.LlegeixJSON;
+import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Usuari;
 
 import java.util.ArrayList;
@@ -34,7 +38,7 @@ public class Menu {
 
         // Pintem el menú
         do{
-            System.out.println("Menu:");
+            System.out.println("Menus.Menu:");
             System.out.println("1. Segons temporalitat");
             System.out.println("2. Segons ubicació");
             System.out.println("3. Segons combinació de prioritats");

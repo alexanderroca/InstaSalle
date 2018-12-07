@@ -1,3 +1,5 @@
+package Estructures_Auxiliars;
+
 import GsonObjects.Usuari;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

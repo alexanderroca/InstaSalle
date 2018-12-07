@@ -1,10 +1,10 @@
 package Sort;
 
+import Estructures_Auxiliars.Interessos;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Hashtable;
 
 /**
@@ -16,32 +16,13 @@ import java.util.Hashtable;
 
 public class SelectionSort {
 
-    public int[] selectionSort(int[] array){
-
-        for(int i = 0; i < array.length - 1; i++){
-
-            int index = i;
-            for (int j = i + 1; j < array.length; j++){
-                if(array[j] < array[index])
-                    index = j;
-
-                int aux = array[index];
-                array[index] = array[i];
-                array[i] = aux;
-            }   //for
-        }   //for
-
-        return array;
-    }
-
-
     /**
      * Funcio que ordena els posts segons la seva data de publicacio
      * @param array : array de Post
      * @return array de Post ordenat segons la seva data de publicacio
      */
     public ArrayList<Post> selectionSortPosts(ArrayList<Post> array){
-        for(int i = 0; i < array.size() - 1; i++){
+        for(int i = 0; i < array.size(); i++){
 
             int index = i;
             for (int j = i + 1; j < array.size(); j++){
@@ -88,10 +69,10 @@ public class SelectionSort {
         return array;
     }
 
-    public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username){
+    public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username, Interessos interessos){
         ArrayList<Post> array = new ArrayList<>();
 
-        for(int i = 0; i < array.size() - 1; i++){
+        for(int i = 0; i < array.size(); i++){
 
             int index = i;
             for (int j = i + 1; j < array.size(); j++){

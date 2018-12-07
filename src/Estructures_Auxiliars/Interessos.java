@@ -1,3 +1,5 @@
+package Estructures_Auxiliars;
+
 public class Interessos {
     private final String[] CATEGORIES = {"landscape", "food", "sports", "style", "animals", "tv_shows", "fitness", "science_tech",
             "music", "travel", "architecture"};
