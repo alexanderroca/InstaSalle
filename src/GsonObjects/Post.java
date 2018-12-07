@@ -62,4 +62,14 @@ public class Post {
 
         return RADI_TERRA * var2;    //distancia
     }
+
+    public int calculaLikesPost(Post post){
+        int likes = 0;
+
+        for(int i = 0; i < post.getLiked_by().length; i++){
+            likes++;
+        }   //for
+
+        return likes;
+    }
 }

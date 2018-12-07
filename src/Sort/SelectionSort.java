@@ -1,9 +1,9 @@
 package Sort;
 
+import Estructures_Auxiliars.CriteriOrdenacio;
 import Estructures_Auxiliars.Interessos;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -81,12 +81,15 @@ public class SelectionSort {
     public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
         ArrayList<Post> posts){
 
+        CriteriOrdenacio combinacioPrioritats = new CriteriOrdenacio();
+
         for(int i = 0; i < posts.size(); i++){
 
             int index = i;
             for (int j = i + 1; j < posts.size(); j++){
 
-          //      if()
+                if(combinacioPrioritats.criteriOrdenacio(posts.get(i), hashtable.get(username), interessos) <
+                        combinacioPrioritats.criteriOrdenacio(posts.get(j), hashtable.get(username), interessos))
                     index = j;
 
                 Post aux = posts.get(i);
