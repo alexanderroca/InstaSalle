@@ -56,7 +56,6 @@ public class Menu {
                     submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, latitudO, longitudO);
                     break;
                 case "3":
-                    System.out.println("\nNo implementat\n");
                     submenu.mostraSubMenuOrd(Integer.valueOf(cas),null, 0, 0);
                     break;
                 case "4":

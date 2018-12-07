@@ -1,8 +1,11 @@
 package Sort;
 
 import GsonObjects.Post;
+import GsonObjects.Usuari;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
@@ -80,6 +83,26 @@ public class SelectionSort {
 
         for(int i = 0; i < array.size(); i++){
             System.out.println(array.get(i).getCategory());
+        }   //for
+
+        return array;
+    }
+
+    public ArrayList<Post> selectionSortUsuaris(Hashtable<String, Usuari> hashtable, String username){
+        ArrayList<Post> array = new ArrayList<>();
+
+        for(int i = 0; i < array.size() - 1; i++){
+
+            int index = i;
+            for (int j = i + 1; j < array.size(); j++){
+
+                if()
+                    index = j;
+
+                Post aux = array.get(i);
+                array.set(i, array.get(index));
+                array.set(index, aux);
+            }   //for
         }   //for
 
         return array;

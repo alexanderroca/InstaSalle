@@ -13,7 +13,8 @@ import java.util.Hashtable;
 
 public class TaulaHash {
     private Hashtable<String, Usuari> hashtable;
-
+    private final String[] CATEGORIES = {"landscape", "food", "sports", "style", "animals", "tv_shows", "fitness", "science_tech",
+            "music", "travel", "architecture"};
     /**
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
      *
@@ -48,5 +49,24 @@ public class TaulaHash {
         }   //for
 
         return posts;
+    }
+
+    public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username){
+        ArrayList<Post> interestingPosts = new ArrayList<>();
+
+        Interessos interessos = new Interessos();
+
+        interessos.setCategory(CATEGORIES);
+
+        for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
+            int visits, likes, comments;
+            visits = hashtable.get(username).getConnections().get(i).getVisits();
+            likes = hashtable.get(username).getConnections().get(i).getLikes();
+            comments = hashtable.get(username).getConnections().get(i).getComments();
+
+            for(int ){
+
+            }
+        }   //for
     }
 }

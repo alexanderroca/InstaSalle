@@ -50,6 +50,9 @@ public class SubMenu {
                     if(opcio == 2){
                         posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
                     }   //if
+                    else{
+
+                    }   //else
                 }   //else
                 break;
             case "4":
