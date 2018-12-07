@@ -1,6 +1,12 @@
 import Estructures_Auxiliars.LlegeixJSON;
 import Estructures_Auxiliars.TaulaHash;
+import GsonObjects.Post;
 import GsonObjects.Usuari;
+import Sort.Parametre;
+import Sort.QuickSort;
+
+import java.io.PipedOutputStream;
+import java.util.ArrayList;
 
 /**
  *Test del programa InstaSalle
@@ -13,12 +19,18 @@ public class Test {
     public static void main(String[] args){
 
         LlegeixJSON llegeixJSON = new LlegeixJSON();
-        Usuari[] usuaris = llegeixJSON.readJSON("jsons/prioritats.json");
+        QuickSort quickSort = new QuickSort();
+        Usuari[] usuaris = llegeixJSON.readJSON("jsons/m_dataset.json");
 
         TaulaHash taulaHash = new TaulaHash(usuaris);
 
-        taulaHash.extractPostsFromUser(taulaHash.getHashtable(), "claudia.peiro");
-        taulaHash.extractInteressos(taulaHash.getHashtable(), "claudia.peiro");
+        ArrayList<Post> posts = taulaHash.extractPosts(taulaHash);
+        Parametre parametre = new Parametre(posts);
+        posts = quickSort.QuicksortI(parametre);
+
+        for(int i = posts.size()-1 ; i > 0; i--){
+            System.out.println(posts.get(i).getPublished());
+        }
 
 
     }
