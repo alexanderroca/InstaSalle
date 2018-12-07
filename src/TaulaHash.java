@@ -36,14 +36,13 @@ public class TaulaHash {
      * @param taulaHash : HashMap que conté tots els Usuaris
      * @return array de Post
      */
-    public Post[] extractPosts(TaulaHash taulaHash){
-        Post[] posts = new Post[taulaHash.hashtable.size()];
-        
-        for(int i = 0; i < taulaHash.hashtable.size(); i++){
-            String key = "user" + i;
+    public ArrayList<Post> extractPosts(TaulaHash taulaHash){
+        ArrayList<Post> posts = new ArrayList<>();
 
-            for(int j = 0; j < hashtable.get(key).getPosts().size(); j++){
-                posts[i] = taulaHash.hashtable.get(key).getPosts().get(j);
+        for(Usuari value : taulaHash.hashtable.values()){
+
+            for(int j = 0; j < value.getPosts().size(); j++){
+                posts.add(taulaHash.hashtable.get(value.getUsername()).getPosts().get(j));
             }   //for
 
         }   //for

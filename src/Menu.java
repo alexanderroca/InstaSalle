@@ -1,6 +1,7 @@
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -30,7 +31,7 @@ public class Menu {
 
         taulaHash = new TaulaHash(usuaris);
 
-        Post[] posts = taulaHash.extractPosts(taulaHash);
+        ArrayList posts = taulaHash.extractPosts(taulaHash);
 
         // Pintem el menú
         do{
@@ -41,7 +42,6 @@ public class Menu {
             System.out.println("4. Sortir\n");
             System.out.print("Sel·lecciona una opcio: ");
             cas = sc.nextLine();
-
 
             switch (cas) {
                 case "1":

@@ -2,6 +2,8 @@ package Sort;
 
 import GsonObjects.Post;
 
+import java.util.ArrayList;
+
 /**
  *Classe que defineix el mètode d'ordenació SelectionSort
  *
@@ -35,18 +37,18 @@ public class SelectionSort {
      * @param array : array de Post
      * @return array de Post ordenat segons la seva data de publicacio
      */
-    public Post[] selectionSortPosts(Post[] array){
-        for(int i = 0; i < array.length - 1; i++){
+    public ArrayList<Post> selectionSortPosts(ArrayList<Post> array){
+        for(int i = 0; i < array.size() - 1; i++){
 
             int index = i;
-            for (int j = i + 1; j < array.length; j++){
+            for (int j = i + 1; j < array.size(); j++){
 
-                if(array[j].getPublished() > array[index].getPublished())
+                if(array.get(j).getPublished() > array.get(index).getPublished())
                     index = j;
 
-                Post aux = array[i];
-                array[i] = array[index];
-                array[index] = aux;
+                Post aux = array.get(i);
+                array.set(i, array.get(index));
+                array.set(index, aux);
             }   //for
         }   //for
 
@@ -60,24 +62,24 @@ public class SelectionSort {
      * @param longitudO
      * @return
      */
-    public Post[] selectionSortProximity(Post[] array, double latitudO, double longitudO){
-        for(int i = 0; i < array.length - 1; i++){
+    public ArrayList<Post> selectionSortProximity(ArrayList<Post> array, double latitudO, double longitudO){
+        for(int i = 0; i < array.size() - 1; i++){
 
             int index = i;
-            for (int j = i + 1; j < array.length; j++){
+            for (int j = i + 1; j < array.size(); j++){
 
-                if(Math.abs(array[j].calculaDistancia(latitudO, longitudO, array[j].getLocation()[0], array[j].getLocation()[1]))
-                        < Math.abs(array[index].calculaDistancia(latitudO, longitudO, array[index].getLocation()[0], array[index].getLocation()[1])))
+                if(Math.abs(array.get(j).calculaDistancia(latitudO, longitudO, array.get(j).getLocation()[0], array.get(j).getLocation()[1]))
+                        < Math.abs(array.get(j).calculaDistancia(latitudO, longitudO, array.get(index).getLocation()[0], array.get(index).getLocation()[1])))
                     index = j;
 
-                Post aux = array[i];
-                array[i] = array[index];
-                array[index] = aux;
+                Post aux = array.get(i);
+                array.set(i, array.get(index));
+                array.set(index, aux);
             }   //for
         }   //for
 
-        for(int i = 0; i < array.length; i++){
-            System.out.println(Math.abs(array[i].calculaDistancia(latitudO, longitudO, array[i].getLocation()[0], array[i].getLocation()[1])));
+        for(int i = 0; i < array.size(); i++){
+            System.out.println(array.get(i).getCategory());
         }   //for
 
         return array;
