@@ -6,6 +6,7 @@ import GsonObjects.Usuari;
 import Sort.SelectionSort;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *Test del programa InstaSalle
@@ -29,6 +30,5 @@ public class Test {
             SelectionSort selectionSort = new SelectionSort();
             posts = selectionSort.selectionSortUsuaris(taulaHash.getHashtable(), "user0", interessos, posts);
             System.out.println("Fi");
-
     }
 }

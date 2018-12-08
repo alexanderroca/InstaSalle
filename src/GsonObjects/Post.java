@@ -16,6 +16,7 @@ public class Post {
     private String category;
     private String[] liked_by;
     private String[] commented_by;
+    private double vincle;
 
     public int getId() {
         return id;
@@ -39,6 +40,14 @@ public class Post {
 
     public String[] getCommented_by() {
         return commented_by;
+    }
+
+    public double getVincle() {
+        return vincle;
+    }
+
+    public void setVincle(double vincle) {
+        this.vincle = vincle;
     }
 
     /**

@@ -14,12 +14,12 @@ public class CriteriOrdenacio {
             //Interaccio entre Usuaris amb els posts
             for (int i = 0; i < post.getCommented_by().length; i++) {
                 if (usuari.getUsername().equals(post.getCommented_by()[i]))
-                    vincle += 30;//TODO: provar valors;
+                    vincle += 200;//TODO: provar valors;
             }   //for
 
             for(int i = 0; i < post.getLiked_by().length; i++){
                 if(usuari.getUsername().equals(post.getLiked_by()[i]))
-                    vincle += 10;//TODO: provar valors
+                    vincle += 100;//TODO: provar valors
             }   //for
         }catch(NullPointerException e){
             System.out.println("No té comentaris.");
@@ -32,10 +32,10 @@ public class CriteriOrdenacio {
         long dies = diferencia / (1000 * 3600 * 24);
 
         if(dies < 4)
-            vincle += 60;//TODO: provar valors
+            vincle += 500;//TODO: provar valors
         else{
             if(dies < 8){
-                vincle += 10;//TODO: provar valors
+                vincle += 100;//TODO: provar valors
             }   //if
         }   //else
 
@@ -43,11 +43,13 @@ public class CriteriOrdenacio {
         for(int i = 0; i < interessos.getCATEGORIES().length; i++){
 
             if(interessos.getCATEGORIES()[i].equals(post.getCategory()))
-                vincle += interessos.getNum()[i] * 1.75;//TODO: provar valors;
+                vincle += interessos.getNum()[i] * 0.75;//TODO: provar valors;
         }   //for
 
         //Tenim en compte els likes del Post
         vincle += post.calculaLikesPost(post) * 0.25;//TODO: provar valors;
+
+        post.setVincle(vincle);
 
         return vincle;
     }
