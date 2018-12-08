@@ -22,14 +22,37 @@ public class SelectionSort {
      * @param array : array de Post
      * @return ArrayList<Post> : posts ordenat segons la seva data de publicacio
      */
-    public ArrayList<Post> selectionSortPosts(ArrayList<Post> array){
+    public ArrayList<Post> selectionSort(ArrayList<Post> array, double latitudO, double longitudO, int opcio,
+                                         Hashtable<String, Usuari> hashtable, String username, Interessos interessos){
+
+        CriteriOrdenacio combinacioPrioritats = null;
+        if(opcio == 3){
+            combinacioPrioritats = new CriteriOrdenacio();
+        }   //if
+
         for(int i = 0; i < array.size(); i++){
 
             int index = i;
             for (int j = i + 1; j < array.size(); j++){
 
-                if(array.get(j).getPublished() > array.get(index).getPublished())
-                    index = j;
+                if(opcio == 1) {
+                    if (array.get(j).getPublished() > array.get(index).getPublished())
+                        index = j;
+                }   //if
+                else{
+                    if(opcio == 2){
+                        if(Math.abs(array.get(j).calculaDistancia(latitudO, longitudO, array.get(j).getLocation()[0], array.get(j).getLocation()[1]))
+                                < Math.abs(array.get(j).calculaDistancia(latitudO, longitudO, array.get(index).getLocation()[0], array.get(index).getLocation()[1])))
+                            index = j;
+                    }   //if
+                    else{
+                        if(opcio == 3){
+                            if(combinacioPrioritats.criteriOrdenacio(array.get(i), hashtable.get(username), interessos) <
+                                    combinacioPrioritats.criteriOrdenacio(array.get(j), hashtable.get(username), interessos))
+                                index = j;
+                        }   //if
+                    }   //else
+                }   //else
 
                 Post aux = array.get(i);
                 array.set(i, array.get(index));

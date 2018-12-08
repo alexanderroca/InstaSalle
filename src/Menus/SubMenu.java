@@ -1,5 +1,6 @@
 package Menus;
 
+import Estructures_Auxiliars.Interessos;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
@@ -24,7 +25,7 @@ public class SubMenu {
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
     public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
-        Hashtable<String, Usuari> hashtable){
+                                 TaulaHash taulaHash){
         String cas;
         Scanner sc = new Scanner(System.in);
 
@@ -45,20 +46,17 @@ public class SubMenu {
                 System.out.println("\nNo implementat\n");
                 break;
             case "3":
+
                 SelectionSort selectionSort = new SelectionSort();
-                if(opcio == 1) {
-                    posts = selectionSort.selectionSortPosts(posts);
-                }
-                else{
-                    if(opcio == 2){
-                        posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
-                    }   //if
-                    else{
-                        
-                    }   //else
-                }   //else
+                Interessos interessos = null;
+                if(opcio == 3){
+                    interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), username);
+                }   //if
+                posts = selectionSort.selectionSort(posts, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interessos);
                 break;
             case "4":
+
                 RadixSort radixSort = new RadixSort();
                 if(opcio == 1){
                     posts = radixSort.radixSortPost(posts);

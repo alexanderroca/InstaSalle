@@ -66,9 +66,14 @@ public class Menu {
                 case "3":
                     
                     opcio = Integer.valueOf(cas);
-                    System.out.println("Insereix-hi nom usuari:");
+                    System.out.print("Insereix-hi nom usuari: ");
                     username = sc.nextLine();
-                    posts = taulaHash.extractPostsFromUser(taulaHash.getHashtable(), username);
+                    try {
+                        posts = taulaHash.extractPostsFromUser(taulaHash.getHashtable(), username);
+                    }catch(NullPointerException e){
+                        opcio = 0;
+                        System.out.println("L'usuari inserit no existeix.");
+                    }
                     break;
                 case "4":
                     
@@ -82,7 +87,7 @@ public class Menu {
             }
             
             if(opcio > 0){
-                submenu.mostraSubMenuOrd(opcio,posts, latitudO, longitudO, username, taulaHash.getHashtable());
+                submenu.mostraSubMenuOrd(opcio,posts, latitudO, longitudO, username, taulaHash);
             }   //if
         }while(!cas.equals("4"));
     }
