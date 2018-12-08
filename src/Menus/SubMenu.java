@@ -21,7 +21,13 @@ import java.util.Scanner;
 class SubMenu {
 
     /**
-     *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
+     * Procediment que s'encarrega de mostrar el menú del metode d'ordenació a triar
+     * @param opcio : funcionalitat seleccionada en l'anterior menú
+     * @param posts : ArrayList de Post
+     * @param latitudO : latitud si es que s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud si es que s'ha seleccionat la funcionalitat 2
+     * @param username : nom d'usuari si es que s'ha seleccionat la funcionalitat 3
+     * @param taulaHash : Objecte que conté el HashTable si es que s'ha seleccionat la funcionalitat 3
      */
     void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
                           TaulaHash taulaHash){

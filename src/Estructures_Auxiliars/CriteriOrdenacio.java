@@ -5,8 +5,21 @@ import GsonObjects.Usuari;
 
 import java.sql.Timestamp;
 
+/**
+ * Classe que defineix el combinació de criteris ha usar per la funcionalitat 3
+ *
+ * @author Alexander Roca
+ * @version 4/12/2018 - 0.1
+ */
 public class CriteriOrdenacio {
 
+    /**
+     * Funció que tracte la interacció d'un Usuari amb la resta d'elements que es connecta amb la resta
+     * @param post : Objecte Post
+     * @param usuari : Objecte Usuari
+     * @param interessos : Objecte Interessos
+     * @return vincle entre l'usuari i el Post
+     */
     public double criteriOrdenacio(Post post, Usuari usuari, Interessos interessos){
         double vincle = 0;
 

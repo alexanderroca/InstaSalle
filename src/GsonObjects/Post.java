@@ -72,6 +72,11 @@ public class Post {
         return RADI_TERRA * var2;    //distancia
     }
 
+    /**
+     * Funcio que conta la quantitat de 'likes' que ha rebut un Post
+     * @param post : Objecte Post
+     * @return la quantitat de 'likes'
+     */
     public int calculaLikesPost(Post post){
         int likes = 0;
 

@@ -18,9 +18,15 @@ import java.util.Hashtable;
 public class RadixSort {
 
     /**
-     * Funcio que realitza l'ordenacio per RadixSort
-     * @param posts : array de Post
-     * @return array Posts : array de Posts ordenat
+     * Funcio que realitza la ordenació pel mètode RadixSort
+     * @param posts : ArrayList de Post
+     * @param opcio : indica la funcionalitat indicada en el menú que indica les funcionalitats
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interessos : Objecte Interessos
+     * @return ArrayList de Post ordenat
      */
     public ArrayList<Post> radixSort(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
                                      Hashtable<String, Usuari> hashtable, String username, Interessos interessos){
@@ -41,10 +47,17 @@ public class RadixSort {
     }
 
     /**
-     * Funcio que ordena array de Posts segons el pes
-     * @param pes : pes (unitats, desenes, centenes, etc.)
-     * @param array : array de Posts
-     * @return array de Posts : array de Posts ordenats segons el seu pes
+     * Funcio que realitza el procés d'ordenacio pel mètode RadixSort
+     * @param pes : indica la magnitud ha realitzar (unitats, desenes, centenes, etc.)
+     * @param array : ArrayList de Post
+     * @param opcio : indica la funcionalitat seleccionada en el menú de funcionalitats
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interessos : Objecte Interessos
+     * @param combinacioPrioritats : Objecte CriteriOrdenacio en cas de realitzar la funcionalitat 3
+     * @return ArrayList de Post
      */
     private ArrayList<Post> sort(double pes, ArrayList<Post> array, int opcio, double latitudO, double longitudO,
                                  Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
@@ -105,9 +118,16 @@ public class RadixSort {
     }
 
     /**
-     * Funcio que extreu la publicacio maxima de Posts
-     * @param posts : array de Post
-     * @return long : nombre maxim
+     * Funcio que busca el màxim valor del ArrayList de Post
+     * @param posts : ArrayList de Post
+     * @param opcio : indica la funcionalitat seleccionada en el menú de funcionalitats
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interessos : Objecte Interessos
+     * @param combinacioPrioritats : Objecte CriteriOrdenacio en cas de realitzar la funcionalitat 3
+     * @return double que indica el valor màxim
      */
     private double getMax(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
                           Hashtable<String, Usuari> hashtable, String username, Interessos interessos,

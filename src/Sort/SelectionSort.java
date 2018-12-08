@@ -18,10 +18,15 @@ import java.util.Hashtable;
 public class SelectionSort {
 
     /**
-     * Funcio que ordena els posts segons la seva data de publicacio
-     *
-     * @param array : array de Post
-     * @return ArrayList<Post> : posts ordenat segons la seva data de publicacio
+     * Funció  que realitza la ordenació pel mètode SelectionSort
+     * @param array : ArrayList de Post
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param opcio : indica la funcionalitat indicada en el menú que indica les funcionalitats
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interessos : Objecte Interessos
+     * @return ArrayList de Post orddenat
      */
     public ArrayList<Post> selectionSort(ArrayList<Post> array, double latitudO, double longitudO, int opcio,
                                          Hashtable<String, Usuari> hashtable, String username, Interessos interessos) {

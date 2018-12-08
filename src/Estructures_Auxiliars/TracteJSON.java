@@ -35,6 +35,10 @@ public class TracteJSON {
         return usuaris;
     }
 
+    /**
+     * Procediment que serialitza els Posts ordenats a un JSON
+     * @param posts : ArrayList de Post
+     */
     public void serializeJSON(ArrayList<Post> posts){
 
         try (Writer writer = new FileWriter("jsons/resultSorted.json")) {
