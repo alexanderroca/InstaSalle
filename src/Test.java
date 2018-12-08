@@ -3,6 +3,7 @@ import Estructures_Auxiliars.LlegeixJSON;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
+import Sort.RadixSort;
 import Sort.SelectionSort;
 
 import java.util.ArrayList;
@@ -22,13 +23,18 @@ public class Test {
         Usuari[] usuaris = llegeixJSON.readJSON("jsons/m_dataset.json");
 
         TaulaHash taulaHash = new TaulaHash(usuaris);
+        Interessos interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), "user0");
 
+        ArrayList<Post> posts = taulaHash.extractPosts(taulaHash);
 
-            ArrayList<Post> posts = taulaHash.extractPostsFromUser(taulaHash.getHashtable(), "user0");
-            Interessos interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), "user0");
+        RadixSort radixSort = new RadixSort();
+        posts = radixSort.radixSort(posts, 3, 0, 0,
+                taulaHash.getHashtable(), "user0", interessos);
 
-            SelectionSort selectionSort = new SelectionSort();
-            posts = selectionSort.selectionSortUsuaris(taulaHash.getHashtable(), "user0", interessos, posts);
-            System.out.println("Fi");
+        for(int i = 0; i < posts.size(); i++){
+            System.out.println(posts.get(i).getVincle());
+        }
+
+        System.out.println("Fi");
     }
 }

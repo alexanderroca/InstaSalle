@@ -29,6 +29,8 @@ public class SubMenu {
         String cas;
         Scanner sc = new Scanner(System.in);
 
+        Interessos interessos = null;
+
         // Pintem el menú:
         System.out.println("Metodes d'ordenacio:");
         System.out.println("1. Merge Sort");
@@ -48,7 +50,6 @@ public class SubMenu {
             case "3":
 
                 SelectionSort selectionSort = new SelectionSort();
-                Interessos interessos = null;
                 if(opcio == 3){
                     interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), username);
                 }   //if
@@ -58,12 +59,14 @@ public class SubMenu {
             case "4":
 
                 RadixSort radixSort = new RadixSort();
-                if(opcio == 1){
-                    posts = radixSort.radixSortPost(posts);
-                    for(int i = posts.size() - 1; i > 0; i--){
-                        System.out.println(posts.get(i).getPublished());
-                    }   //for
+                if(opcio == 3){
+                    interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), username);
                 }   //if
+                posts = radixSort.radixSort(posts, opcio, latitudO, longitudO, taulaHash.getHashtable(),
+                        username, interessos);
+                for(int i = 0; i < posts.size(); i++){
+                    System.out.println(posts.get(i).getVincle());
+                }
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
