@@ -10,16 +10,20 @@ public class CriteriOrdenacio {
     public double criteriOrdenacio(Post post, Usuari usuari, Interessos interessos){
         double vincle = 0;
 
-        //Interaccio entre Usuaris amb els posts
-        for(int i = 0; i < post.getCommented_by().length; i++){
-            if(usuari.getUsername().equals(post.getCommented_by()[i]))
-                vincle += 30;//TODO: provar valors;
-            else{
-                if(usuari.getUsername().equals(post.getLiked_by()[i]))
-                    vincle += 10;//TODO: provar valors;
-            }   //else
-        }   //for
+        try {
+            //Interaccio entre Usuaris amb els posts
+            for (int i = 0; i < post.getCommented_by().length; i++) {
+                if (usuari.getUsername().equals(post.getCommented_by()[i]))
+                    vincle += 30;//TODO: provar valors;
+            }   //for
 
+            for(int i = 0; i < post.getLiked_by().length; i++){
+                if(usuari.getUsername().equals(post.getLiked_by()[i]))
+                    vincle += 10;//TODO: provar valors
+            }   //for
+        }catch(NullPointerException e){
+            System.out.println("No té comentaris.");
+        }
         //Temporalitat del post
         Timestamp tmp = new Timestamp(System.currentTimeMillis());
 

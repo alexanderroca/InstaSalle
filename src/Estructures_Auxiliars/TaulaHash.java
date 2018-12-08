@@ -62,13 +62,15 @@ public class TaulaHash {
      * @param username : nom d'usuari
      * @return ArrayList<Post> : tots els posts que ha intervingut l'usuari
      */
-    public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username){
+    public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username) throws NullPointerException{
         ArrayList<Post> interestingPosts = new ArrayList<>();
 
-        for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
+        for (int i = 0; i < hashtable.get(username).getConnections().size(); i++) {
 
-            interestingPosts.addAll(hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts());
+            String aux = hashtable.get(username).getConnections().get(i).getUsername();
+            interestingPosts.addAll(hashtable.get(aux).getPosts());
         }   //for
+
 
         return interestingPosts;
     }
