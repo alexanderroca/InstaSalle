@@ -34,7 +34,6 @@ public class TaulaHash {
             hashtable.put(usuaris[i].getUsername(), usuaris[i]);
         }   //for
 
-        System.out.println("Informació inserida a una Taula de Hash");
     }
 
     /**

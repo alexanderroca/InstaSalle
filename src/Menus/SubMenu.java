@@ -1,10 +1,13 @@
 package Menus;
 
+import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
+import GsonObjects.Usuari;
 import Sort.RadixSort;
 import Sort.SelectionSort;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /**
@@ -20,7 +23,8 @@ public class SubMenu {
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO){
+    public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
+        Hashtable<String, Usuari> hashtable){
         String cas;
         Scanner sc = new Scanner(System.in);
 
