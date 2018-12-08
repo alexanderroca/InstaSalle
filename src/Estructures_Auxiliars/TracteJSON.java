@@ -1,12 +1,12 @@
 package Estructures_Auxiliars;
 
+import GsonObjects.Post;
 import GsonObjects.Usuari;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.util.ArrayList;
 
 /**
  *Classe que defineix el procés de lectura d'un JSON ajudant-se de la llibreria Gson
@@ -15,7 +15,7 @@ import java.io.FileReader;
  * @version 17/11/2018 - 0.1
  */
 
-public class LlegeixJSON {
+public class TracteJSON {
 
     /**
      *Funció que realitza la lectura del JSON (gràcies a funcionalitats de la llibreria Gson que està en la
@@ -33,5 +33,15 @@ public class LlegeixJSON {
             System.out.println("No s'ha llegit correctament el JSON");
         }
         return usuaris;
+    }
+
+    public void serializeJSON(ArrayList<Post> posts){
+
+        try (Writer writer = new FileWriter("jsons/resultSorted.json")) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(posts, writer);
+        } catch (IOException e) {
+            System.out.println("Problema en crear el JSON del resultat de l'ordenacio.");;
+        }
     }
 }

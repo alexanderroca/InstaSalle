@@ -8,7 +8,7 @@ package GsonObjects;
  */
 
 public class Post {
-    public static final double RADI_TERRA = 6371;
+    private static final double RADI_TERRA = 6371;
 
     private int id;
     private long published;

@@ -1,14 +1,13 @@
 package Menus;
 
 import Estructures_Auxiliars.Interessos;
+import Estructures_Auxiliars.TracteJSON;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
-import GsonObjects.Usuari;
 import Sort.RadixSort;
 import Sort.SelectionSort;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Scanner;
 
 /**
@@ -19,16 +18,17 @@ import java.util.Scanner;
  * @version 15/11/2018 - 0.1
  */
 
-public class SubMenu {
+class SubMenu {
 
     /**
      *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
      */
-    public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
-                                 TaulaHash taulaHash){
+    void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
+                          TaulaHash taulaHash){
         String cas;
         Scanner sc = new Scanner(System.in);
 
+        TracteJSON tracteJSON = new TracteJSON();
         Interessos interessos = null;
 
         // Pintem el menú:
@@ -55,6 +55,8 @@ public class SubMenu {
                 }   //if
                 posts = selectionSort.selectionSort(posts, latitudO, longitudO, opcio, taulaHash.getHashtable()
                         , username, interessos);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "4":
 
@@ -64,9 +66,8 @@ public class SubMenu {
                 }   //if
                 posts = radixSort.radixSort(posts, opcio, latitudO, longitudO, taulaHash.getHashtable(),
                         username, interessos);
-                for(int i = 0; i < posts.size(); i++){
-                    System.out.println(posts.get(i).getVincle());
-                }
+
+                tracteJSON.serializeJSON(posts);
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
@@ -77,7 +78,7 @@ public class SubMenu {
      *Procediment per visualitzar el submenú per seleccionar el JSON (els JSONs estan en la carpeta jsons)
      * el qual voldrem llegir
      */
-    public String mostraSubMenuJson(){
+    String mostraSubMenuJson(){
         String cas;
         Scanner sc = new Scanner(System.in);
         String json = "jsons/";

@@ -1,13 +1,11 @@
 import Estructures_Auxiliars.Interessos;
-import Estructures_Auxiliars.LlegeixJSON;
+import Estructures_Auxiliars.TracteJSON;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 import Sort.RadixSort;
-import Sort.SelectionSort;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *Test del programa InstaSalle
@@ -19,8 +17,8 @@ import java.util.Date;
 public class Test {
     public static void main(String[] args){
 
-        LlegeixJSON llegeixJSON = new LlegeixJSON();
-        Usuari[] usuaris = llegeixJSON.readJSON("jsons/m_dataset.json");
+        TracteJSON tracteJSON = new TracteJSON();
+        Usuari[] usuaris = tracteJSON.readJSON("jsons/m_dataset.json");
 
         TaulaHash taulaHash = new TaulaHash(usuaris);
         Interessos interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), "user0");

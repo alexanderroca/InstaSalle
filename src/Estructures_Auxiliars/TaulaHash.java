@@ -30,8 +30,8 @@ public class TaulaHash {
         hashtable = new Hashtable<>();
 
         //hashtable = new Hashtable(usuaris.length);
-        for(int i = 0; i < usuaris.length; i++){
-            hashtable.put(usuaris[i].getUsername(), usuaris[i]);
+        for (Usuari usuari : usuaris) {
+            hashtable.put(usuari.getUsername(), usuari);
         }   //for
 
     }

@@ -6,22 +6,22 @@ public class Interessos {
     private int[] num = new int[CATEGORIES.length];
 
 
-    public Interessos() {
+    Interessos() {
 
         for(int i = 0; i < CATEGORIES.length; i++){
             num[i] = 0;
         }   //for
     }
 
-    public String[] getCATEGORIES() {
+    String[] getCATEGORIES() {
         return CATEGORIES;
     }
 
-    public int[] getNum() {
+    int[] getNum() {
         return num;
     }
 
-    public void setNum(int num, int pos) {
+    void setNum(int num, int pos) {
         this.num[pos] = num;
     }
 }

@@ -46,9 +46,9 @@ public class RadixSort {
      * @param array : array de Posts
      * @return array de Posts : array de Posts ordenats segons el seu pes
      */
-    public ArrayList<Post> sort(double pes, ArrayList<Post> array, int opcio, double latitudO, double longitudO,
-                                Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
-                                CriteriOrdenacio combinacioPrioritats){
+    private ArrayList<Post> sort(double pes, ArrayList<Post> array, int opcio, double latitudO, double longitudO,
+                                 Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
+                                 CriteriOrdenacio combinacioPrioritats){
         Post[] aux = new Post[array.size()];
         int[] count = new int[10];
 
@@ -109,9 +109,9 @@ public class RadixSort {
      * @param posts : array de Post
      * @return long : nombre maxim
      */
-    public double getMax(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
-                         Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
-                         CriteriOrdenacio combinacioPrioritats){
+    private double getMax(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
+                          Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
+                          CriteriOrdenacio combinacioPrioritats){
 
         double max = 0;
 

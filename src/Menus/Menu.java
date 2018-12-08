@@ -1,6 +1,6 @@
 package Menus;
 
-import Estructures_Auxiliars.LlegeixJSON;
+import Estructures_Auxiliars.TracteJSON;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Usuari;
 
@@ -31,8 +31,8 @@ public class Menu {
         String cas;
         Scanner sc = new Scanner(System.in);
 
-        LlegeixJSON llegeixJSON = new LlegeixJSON();
-        Usuari[] usuaris = llegeixJSON.readJSON(submenu.mostraSubMenuJson());
+        TracteJSON tracteJSON = new TracteJSON();
+        Usuari[] usuaris = tracteJSON.readJSON(submenu.mostraSubMenuJson());
 
         taulaHash = new TaulaHash(usuaris);
 
