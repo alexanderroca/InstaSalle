@@ -46,6 +46,7 @@ class SubMenu {
         System.out.print("Sel·lecciona una opcio: ");
         cas = sc.nextLine();
 
+        long startTime = System.nanoTime();
         switch (cas) {
             case "1":
                 MergeSort mergeSort = new MergeSort();
@@ -93,8 +94,9 @@ class SubMenu {
             default:
                 System.out.println("\nError, opció incorrecta\n");
         }
+        long endTime = System.nanoTime() - startTime;
+        System.out.println(endTime);
     }
-
     /**
      *Procediment per visualitzar el submenú per seleccionar el JSON (els JSONs estan en la carpeta jsons)
      * el qual voldrem llegir
@@ -109,7 +111,7 @@ class SubMenu {
             System.out.println("1. m_dataset.json");
             System.out.println("2. s_dataset.json");
             System.out.println("3. xs_dataset.json");
-            System.out.println("4. test_distancies.json");
+            System.out.println("4. posts_1K5_dataset.json");
             System.out.print("Sel·lecciona una opcio: ");
             cas = sc.nextLine();
 
@@ -125,7 +127,7 @@ class SubMenu {
                     json = json.concat("xs_dataset.json");
                     break;
                 case "4":
-                    json = json.concat("test_distancies.json");
+                    json = json.concat("posts_1K5_dataset.json");
                 default:
                     System.out.println("\nError, opció incorrecta\n");
 

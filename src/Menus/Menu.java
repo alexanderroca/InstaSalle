@@ -55,16 +55,17 @@ public class Menu {
                     posts = taulaHash.extractPosts(taulaHash);
                     break;
                 case "2":
-                    
+
                     opcio = Integer.valueOf(cas);
                     System.out.print("Insereix-hi latitud: ");
                     latitudO = sc.nextDouble();
                     System.out.print("Insereix-hi longitud: ");
                     longitudO = sc.nextDouble();
                     posts = taulaHash.extractPosts(taulaHash);
+                    sc.nextLine();
                     break;
                 case "3":
-                    
+
                     opcio = Integer.valueOf(cas);
                     System.out.print("Insereix-hi nom usuari: ");
                     username = sc.nextLine();
@@ -76,7 +77,7 @@ public class Menu {
                     }
                     break;
                 case "4":
-                    
+
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");
                     break;
                 default:
