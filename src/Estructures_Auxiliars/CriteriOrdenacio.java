@@ -4,6 +4,9 @@ import GsonObjects.Post;
 import GsonObjects.Usuari;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Classe que defineix el combinació de criteris ha usar per la funcionalitat 3
@@ -37,17 +40,30 @@ public class CriteriOrdenacio {
         }catch(NullPointerException e){
             System.out.println("No té comentaris.");
         }
-        //Temporalitat del post
-        Timestamp tmp = new Timestamp(System.currentTimeMillis());
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Timestamp tmp_aux = new Timestamp(System.currentTimeMillis());
+        Date today_aux = null;
+        try {
+            today_aux = dateFormat.parse(tmp_aux.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Timestamp tmpPost = new Timestamp(post.getPublished());
+        Date postDay = null;
+        try {
+            postDay = dateFormat.parse(tmpPost.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        long today = tmp.getTime();
-        long diferencia = today - post.getPublished();
-        long dies = diferencia / (1000 * 3600 * 24);
+        int diferencia_aux = (int) ((today_aux.getTime() - postDay.getTime()) / 86400000);
+        //
 
-        if(dies < 4)
+        if(diferencia_aux < 4)
             vincle += 500;//TODO: provar valors
         else{
-            if(dies < 8){
+            if(diferencia_aux < 8){
                 vincle += 100;//TODO: provar valors
             }   //if
         }   //else

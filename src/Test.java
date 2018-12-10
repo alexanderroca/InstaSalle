@@ -7,7 +7,13 @@ import Sort.MergeSort;
 import Sort.Parametre;
 import Sort.QuickSort;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *Test del programa InstaSalle
@@ -33,7 +39,26 @@ public class Test {
 
         //MergeSort mergeSort = new MergeSort();
 
-        Parametre parametre = new Parametre(posts);
+        Timestamp tmp = new Timestamp(posts.get(0).getPublished());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaInicial= null;
+        try {
+            fechaInicial = dateFormat.parse(tmp.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date fechaFinal= null;
+        try {
+            fechaFinal = dateFormat.parse("2016-03-22");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int dias=(int) ((fechaFinal.getTime()-fechaInicial.getTime())/86400000);
+
+        System.out.println(dias);
+
+        /*Parametre parametre = new Parametre(posts);
         QuickSort quickSort = new QuickSort();
 
         posts = quickSort.QuicksortI(parametre, 0, 0,3, taulaHash.getHashtable(), "user0",
@@ -41,7 +66,7 @@ public class Test {
 
         for(int i = 0; i < posts.size(); i++){
             System.out.println(posts.get(i).getVincle());
-        }
+        }*/
 
     }
 }
