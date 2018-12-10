@@ -4,6 +4,8 @@ import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 import Sort.MergeSort;
+import Sort.Parametre;
+import Sort.QuickSort;
 
 import java.util.ArrayList;
 
@@ -29,15 +31,17 @@ public class Test {
 
         //SelectionSort selectionSort = new SelectionSort();
 
-        MergeSort mergeSort = new MergeSort();
+        //MergeSort mergeSort = new MergeSort();
 
-        posts = mergeSort.ordenaMergeI(posts, 0, posts.size() - 1,0, 0, 3,
-                taulaHash.getHashtable(), "user0", interes);
+        Parametre parametre = new Parametre(posts);
+        QuickSort quickSort = new QuickSort();
 
-        for(int i = 0; i < posts.size() - 1; i++){
+        posts = quickSort.QuicksortI(parametre, 0, 0,3, taulaHash.getHashtable(), "user0",
+                interes);
+
+        for(int i = 0; i < posts.size(); i++){
             System.out.println(posts.get(i).getVincle());
         }
-
 
     }
 }
