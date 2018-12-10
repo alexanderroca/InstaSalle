@@ -7,7 +7,7 @@ Execució: Classe Main -> Run 'Main.main()'
 				    MergeSort, QuickSort, SelectionSort o RadixSort; 
 				    només un per execució, seguit pel o pels nombres 
 				    que indiquen la funcionalitat.
-
+Si el procés té exit es generaran el '.json' respectivament a les funcionalitats indicades.
 
 Link del GitHub per visualitzar els procés del projecte:
 https://github.com/alexanderroca/InstaSalle
