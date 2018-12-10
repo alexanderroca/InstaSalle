@@ -12,4 +12,5 @@ Si el procés té exit es generaran el '.json' respectivament a les funcionalitats
 Link del GitHub per visualitzar els procés del projecte:
 https://github.com/alexanderroca/InstaSalle
 
-PD:El projecte final esta en la branca final.
+PD:El projecte final esta en la branca final. Al executar el programa demanem sobre quin .json 
+	l'usuari vol actuar.
