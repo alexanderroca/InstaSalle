@@ -17,10 +17,10 @@ public class CriteriOrdenacio {
      * Funció que tracte la interacció d'un Usuari amb la resta d'elements que es connecta amb la resta
      * @param post : Objecte Post
      * @param usuari : Objecte Usuari
-     * @param interessos : Objecte Interessos
+     * @param interes : Objecte Interes
      * @return vincle entre l'usuari i el Post
      */
-    public double criteriOrdenacio(Post post, Usuari usuari, Interessos interessos){
+    public double criteriOrdenacio(Post post, Usuari usuari, Interes interes){
         double vincle = 0;
 
         try {
@@ -52,11 +52,11 @@ public class CriteriOrdenacio {
             }   //if
         }   //else
 
-        //Interessos del usuari respecte el post
-        for(int i = 0; i < interessos.getCATEGORIES().length; i++){
+        //Interes del usuari respecte el post
+        for(int i = 0; i < interes.getCATEGORIES().length; i++){
 
-            if(interessos.getCATEGORIES()[i].equals(post.getCategory()))
-                vincle += interessos.getNum()[i] * 0.75;//TODO: provar valors;
+            if(interes.getCATEGORIES()[i].equals(post.getCategory()))
+                vincle += interes.getNum()[i] * 0.75;//TODO: provar valors;
         }   //for
 
         //Tenim en compte els likes del Post

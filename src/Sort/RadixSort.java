@@ -1,7 +1,7 @@
 package Sort;
 
 import Estructures_Auxiliars.CriteriOrdenacio;
-import Estructures_Auxiliars.Interessos;
+import Estructures_Auxiliars.Interes;
 import GsonObjects.Post;
 import GsonObjects.Usuari;
 
@@ -11,7 +11,7 @@ import java.util.Hashtable;
 /**
  *Classe que defineix el mètode d'ordenació RadixSort
  *
- * @author: Alexander Roca
+ * @author Alexander Roca
  * @version  - 0.1
  */
 
@@ -25,21 +25,21 @@ public class RadixSort {
      * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
      * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
      * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
-     * @param interessos : Objecte Interessos
+     * @param interes : Objecte Interes
      * @return ArrayList de Post ordenat
      */
     public ArrayList<Post> radixSort(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
-                                     Hashtable<String, Usuari> hashtable, String username, Interessos interessos){
+                                     Hashtable<String, Usuari> hashtable, String username, Interes interes){
 
         CriteriOrdenacio combinacioPrioritats = null;
         if(opcio == 3){
             combinacioPrioritats = new CriteriOrdenacio();
         }   //if
 
-        double max = getMax(posts, opcio, latitudO, longitudO, hashtable, username, interessos, combinacioPrioritats);
+        double max = getMax(posts, opcio, latitudO, longitudO, hashtable, username, interes, combinacioPrioritats);
 
         for(double i = 1; max / i > 0; i *= 10){
-            posts = sort(i, posts, opcio, latitudO, longitudO, hashtable, username, interessos,
+            posts = sort(i, posts, opcio, latitudO, longitudO, hashtable, username, interes,
                     combinacioPrioritats);
         }   //for
 
@@ -55,12 +55,12 @@ public class RadixSort {
      * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
      * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
      * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
-     * @param interessos : Objecte Interessos
+     * @param interes : Objecte Interes
      * @param combinacioPrioritats : Objecte CriteriOrdenacio en cas de realitzar la funcionalitat 3
      * @return ArrayList de Post
      */
     private ArrayList<Post> sort(double pes, ArrayList<Post> array, int opcio, double latitudO, double longitudO,
-                                 Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
+                                 Hashtable<String, Usuari> hashtable, String username, Interes interes,
                                  CriteriOrdenacio combinacioPrioritats){
         Post[] aux = new Post[array.size()];
         int[] count = new int[10];
@@ -77,7 +77,7 @@ public class RadixSort {
                 else{
                     if(opcio == 3){
                         count[(int) (combinacioPrioritats.criteriOrdenacio(anArray,
-                                hashtable.get(username), interessos) / pes % 10)]++;
+                                hashtable.get(username), interes) / pes % 10)]++;
                     }   //if
                 }   //else
             }   //else
@@ -102,9 +102,9 @@ public class RadixSort {
                 else{
                     if(opcio == 3){
                         aux[count[(int) ((combinacioPrioritats.criteriOrdenacio(array.get(i),
-                                hashtable.get(username), interessos) / pes) % 10)] - 1] = array.get(i);
+                                hashtable.get(username), interes) / pes) % 10)] - 1] = array.get(i);
                         count[(int) ((combinacioPrioritats.criteriOrdenacio(array.get(i),
-                                hashtable.get(username), interessos) / pes) % 10)]--;
+                                hashtable.get(username), interes) / pes) % 10)]--;
                     }   //if
                 }   //else
             }   //else
@@ -125,12 +125,12 @@ public class RadixSort {
      * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
      * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
      * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
-     * @param interessos : Objecte Interessos
+     * @param interes : Objecte Interes
      * @param combinacioPrioritats : Objecte CriteriOrdenacio en cas de realitzar la funcionalitat 3
      * @return double que indica el valor màxim
      */
     private double getMax(ArrayList<Post> posts, int opcio, double latitudO, double longitudO,
-                          Hashtable<String, Usuari> hashtable, String username, Interessos interessos,
+                          Hashtable<String, Usuari> hashtable, String username, Interes interes,
                           CriteriOrdenacio combinacioPrioritats){
 
         double max = 0;
@@ -144,7 +144,7 @@ public class RadixSort {
             }   //if
             else{
                 if(opcio == 3){
-                    max = combinacioPrioritats.criteriOrdenacio(posts.get(0), hashtable.get(username), interessos);
+                    max = combinacioPrioritats.criteriOrdenacio(posts.get(0), hashtable.get(username), interes);
                 }   //if
             }   //else
         }   //else
@@ -164,9 +164,9 @@ public class RadixSort {
                 }   //if
                 else{
                     if(opcio == 3){
-                        if(combinacioPrioritats.criteriOrdenacio(posts.get(i), hashtable.get(username), interessos)
+                        if(combinacioPrioritats.criteriOrdenacio(posts.get(i), hashtable.get(username), interes)
                             > max){
-                            max = combinacioPrioritats.criteriOrdenacio(posts.get(i), hashtable.get(username), interessos);
+                            max = combinacioPrioritats.criteriOrdenacio(posts.get(i), hashtable.get(username), interes);
                         }   //if
                     }   //if
                 }   //else

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  *Classe que defineix el procés de lectura d'un JSON ajudant-se de la llibreria Gson
  *
- * @author: Alexander Roca
+ * @author Alexander Roca
  * @version 17/11/2018 - 0.1
  */
 

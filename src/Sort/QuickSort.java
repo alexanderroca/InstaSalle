@@ -5,7 +5,7 @@ import Sort.Parametre;
 /**
  *Classe que defineix el mètode d'ordenació Quicksort
  *
- * @author: Alexander Roca, Marc Cespedes
+ * @author Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 

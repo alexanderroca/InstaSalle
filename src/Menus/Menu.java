@@ -11,7 +11,7 @@ import java.util.Scanner;
  *Classe que defineix el menú principal del programa, a partir d'aquesta
  * la resta de classes es relacionaran amb ella.
  *
- * @author: Alexander Roca, Marc Cespedes
+ * @author Alexander Roca, Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 

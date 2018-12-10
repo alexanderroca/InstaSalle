@@ -1,12 +1,12 @@
 package Menus;
 
-import Estructures_Auxiliars.Interessos;
-import Estructures_Auxiliars.TracteJSON;
+import Estructures_Auxiliars.Interes;
 import Estructures_Auxiliars.TaulaHash;
+import Estructures_Auxiliars.TracteJSON;
 import GsonObjects.Post;
+import Sort.MergeSort;
 import Sort.RadixSort;
 import Sort.SelectionSort;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -35,7 +35,7 @@ class SubMenu {
         Scanner sc = new Scanner(System.in);
 
         TracteJSON tracteJSON = new TracteJSON();
-        Interessos interessos = null;
+        Interes interes = null;
 
         // Pintem el menú:
         System.out.println("Metodes d'ordenacio:");
@@ -48,7 +48,14 @@ class SubMenu {
 
         switch (cas) {
             case "1":
-                System.out.println("\nNo implementat\n");
+                MergeSort mergeSort = new MergeSort();
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
+                }
+                posts = mergeSort.ordenaMergeI(posts, 0, posts.size() -1, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "2":
                 System.out.println("\nNo implementat\n");
@@ -57,10 +64,10 @@ class SubMenu {
 
                 SelectionSort selectionSort = new SelectionSort();
                 if(opcio == 3){
-                    interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), username);
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
                 }   //if
                 posts = selectionSort.selectionSort(posts, latitudO, longitudO, opcio, taulaHash.getHashtable()
-                        , username, interessos);
+                        , username, interes);
 
                 tracteJSON.serializeJSON(posts);
                 break;
@@ -68,10 +75,10 @@ class SubMenu {
 
                 RadixSort radixSort = new RadixSort();
                 if(opcio == 3){
-                    interessos = taulaHash.extractInteressos(taulaHash.getHashtable(), username);
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
                 }   //if
                 posts = radixSort.radixSort(posts, opcio, latitudO, longitudO, taulaHash.getHashtable(),
-                        username, interessos);
+                        username, interes);
 
                 tracteJSON.serializeJSON(posts);
                 break;
@@ -101,7 +108,7 @@ class SubMenu {
 
             switch (cas) {
                 case "1":
-                   json = json.concat("m_dataset.json");
+                    json = json.concat("m_dataset.json");
                     break;
                 case "2":
                     json = json.concat("s_dataset.json");
