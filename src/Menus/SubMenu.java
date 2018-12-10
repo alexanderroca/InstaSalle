@@ -56,7 +56,7 @@ class SubMenu {
                 posts = mergeSort.ordenaMergeI(posts, 0, posts.size() -1, latitudO, longitudO, opcio, taulaHash.getHashtable()
                         , username, interes);
 
-                tracteJSON.serializeJSON(posts);
+                tracteJSON.serializeJSON(posts, 0);
                 break;
             case "2":
                 QuickSort quickSort = new QuickSort();
@@ -67,7 +67,7 @@ class SubMenu {
                 posts = quickSort.QuicksortI(parametre, latitudO, longitudO, opcio, taulaHash.getHashtable()
                         , username, interes);
 
-                tracteJSON.serializeJSON(posts);
+                tracteJSON.serializeJSON(posts, 0);
                 break;
             case "3":
 
@@ -78,7 +78,7 @@ class SubMenu {
                 posts = selectionSort.selectionSort(posts, latitudO, longitudO, opcio, taulaHash.getHashtable()
                         , username, interes);
 
-                tracteJSON.serializeJSON(posts);
+                tracteJSON.serializeJSON(posts, 0);
                 break;
             case "4":
 
@@ -89,7 +89,7 @@ class SubMenu {
                 posts = radixSort.radixSort(posts, opcio, latitudO, longitudO, taulaHash.getHashtable(),
                         username, interes);
 
-                tracteJSON.serializeJSON(posts);
+                tracteJSON.serializeJSON(posts, 0);
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");

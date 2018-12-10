@@ -39,9 +39,9 @@ public class TracteJSON {
      * Procediment que serialitza els Posts ordenats a un JSON
      * @param posts : ArrayList de Post
      */
-    public void serializeJSON(ArrayList<Post> posts){
+    public void serializeJSON(ArrayList<Post> posts, int i){
 
-        try (Writer writer = new FileWriter("jsons/resultSorted.json")) {
+        try (Writer writer = new FileWriter("jsons/resultSorted" + i + ".json")) {
             Gson gson = new GsonBuilder().create();
             gson.toJson(posts, writer);
         } catch (IOException e) {
