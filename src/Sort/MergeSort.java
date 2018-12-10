@@ -16,7 +16,19 @@ import java.util.Hashtable;
 
 public class MergeSort {
 
-    //FUNCIONALITAT 1 TOT OK !
+    /**
+     * Funció que realitza la partició de l'array i crida a la funció per ordenar-lo.
+     * @param a Array de Post
+     * @param i : valor mínim de l'array
+     * @param j : valor màx de l'array
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param opcio : indica la funcionalitat indicada en el menú que indica les funcionalitats
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interes : Objecte Interessos
+     * @return ArrayList de Post ordenat
+     */
     public ArrayList<Post> ordenaMergeI(ArrayList<Post> a, int i, int j, double latitudO, double longitudO, int opcio,
                                         Hashtable<String, Usuari> hashtable, String username, Interes interes){
         int mig;
@@ -33,6 +45,20 @@ public class MergeSort {
         return a;
     }
 
+    /**
+     * Funció que realitza la ordenació pel mètode MergeSort
+     * @param a ArrayList de Post
+     * @param i Valor mínim de l'array
+     * @param mig Valor mig de l'array
+     * @param j Valor màxim de l'array
+     * @param latitudO : latitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud que ha inserit l'usuari si s'ha seleccionat la funcionalitat 2
+     * @param opcio : indica la funcionalitat indicada en el menú que indica les funcionalitats
+     * @param hashtable : Taula de Hash que conté els Usuaris, té com a key el nom d'Usuari
+     * @param username : String que indica el nom d'usuari a buscar si s'ha seleccionat la funcionalitat 3
+     * @param interes : Objecte Interessos
+     * @return ArrayList de Post ordenat
+     */
     public ArrayList<Post> merge(ArrayList<Post> a, int i, int mig, int j, double latitudO, double longitudO, int opcio,
                                  Hashtable<String, Usuari> hashtable, String username, Interes interes){
         ArrayList<Post> b = new ArrayList<>();

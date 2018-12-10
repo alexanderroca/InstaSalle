@@ -4,9 +4,9 @@ import Estructures_Auxiliars.Interes;
 import Estructures_Auxiliars.TaulaHash;
 import Estructures_Auxiliars.TracteJSON;
 import GsonObjects.Post;
-import Sort.MergeSort;
-import Sort.RadixSort;
-import Sort.SelectionSort;
+import Sort.*;
+
+import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -58,7 +58,15 @@ class SubMenu {
                 tracteJSON.serializeJSON(posts);
                 break;
             case "2":
-                System.out.println("\nNo implementat\n");
+                QuickSort quickSort = new QuickSort();
+                Parametre parametre = new Parametre(posts);
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
+                }
+                posts = quickSort.QuicksortI(parametre, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "3":
 
