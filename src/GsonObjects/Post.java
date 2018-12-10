@@ -3,12 +3,12 @@ package GsonObjects;
 /**
  *Classe que defineix els camps d'un post que va realitzar un Usuari
  *
- * @author: Alexander Roca, Marc Cespedes
+ * @author Alexander Roca, Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 
 public class Post {
-    public static final double RADI_TERRA = 6371;
+    private static final double RADI_TERRA = 6371;
 
     private int id;
     private long published;
@@ -16,6 +16,7 @@ public class Post {
     private String category;
     private String[] liked_by;
     private String[] commented_by;
+    private double vincle;
 
     public int getId() {
         return id;
@@ -41,6 +42,14 @@ public class Post {
         return commented_by;
     }
 
+    public double getVincle() {
+        return vincle;
+    }
+
+    public void setVincle(double vincle) {
+        this.vincle = vincle;
+    }
+
     /**
      * Funcio que realitza la formual de Haversine
      * @param latitudO : double que indica la latitude inicial
@@ -61,5 +70,20 @@ public class Post {
         double var2 = 2 * Math.asin(Math.sqrt(var1));
 
         return RADI_TERRA * var2;    //distancia
+    }
+
+    /**
+     * Funcio que conta la quantitat de 'likes' que ha rebut un Post
+     * @param post : Objecte Post
+     * @return la quantitat de 'likes'
+     */
+    public int calculaLikesPost(Post post){
+        int likes = 0;
+
+        for(int i = 0; i < post.getLiked_by().length; i++){
+            likes++;
+        }   //for
+
+        return likes;
     }
 }

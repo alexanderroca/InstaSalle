@@ -9,7 +9,7 @@ import java.util.Hashtable;
 /**
  *Classe que defineix el mètode d'ordenació MergeSort
  *
- * @author: Alexander Roca
+ * @author Alexander Roca
  * @version 27/11/2018 - 0.1
  */
 
@@ -24,23 +24,21 @@ public class TaulaHash {
      *Constructor que migra les dades d'un ArrayList d'usuaris a una taula de hash
      *
      * @param usuaris: ArrayList d'usuaris
-     * @return taula de hash on la KEY serà el nom del usuari(String) i el VALUE serà Usuari
      */
     public TaulaHash(Usuari[] usuaris) {
         hashtable = new Hashtable<>();
 
         //hashtable = new Hashtable(usuaris.length);
-        for(int i = 0; i < usuaris.length; i++){
-            hashtable.put(usuaris[i].getUsername(), usuaris[i]);
+        for (Usuari usuari : usuaris) {
+            hashtable.put(usuari.getUsername(), usuari);
         }   //for
 
-        System.out.println("Informació inserida a una Taula de Hash");
     }
 
     /**
      *Funcio que extreu tots els Post de la taula de hash
      * @param taulaHash : HashMap que conté tots els Usuaris
-     * @return array de Post
+     * @return ArrayList de Post : conté tots els posts
      */
     public ArrayList<Post> extractPosts(TaulaHash taulaHash){
         ArrayList<Post> posts = new ArrayList<>();
@@ -56,19 +54,33 @@ public class TaulaHash {
         return posts;
     }
 
-    public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username){
+    /**
+     * Funcio que extreu tots els Posts dels contactes de l'usuari
+     * @param hashtable : HashTable que conté totes les dades
+     * @param username : nom d'usuari
+     * @return ArrayList de Post : tots els posts que ha intervingut l'usuari
+     */
+    public ArrayList<Post> extractPostsFromUser(Hashtable<String, Usuari> hashtable, String username) throws NullPointerException{
         ArrayList<Post> interestingPosts = new ArrayList<>();
 
-        for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
+        for (int i = 0; i < hashtable.get(username).getConnections().size(); i++) {
 
-            interestingPosts.addAll(hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts());
+            String aux = hashtable.get(username).getConnections().get(i).getUsername();
+            interestingPosts.addAll(hashtable.get(aux).getPosts());
         }   //for
+
 
         return interestingPosts;
     }
 
-    public Interessos extractInteressos(Hashtable<String, Usuari> hashtable, String username){
-        Interessos interessos = new Interessos();
+    /**
+     * Funcio que contabilitza els interessos del usuari
+     * @param hashtable : HashTable que conte totes les dades
+     * @param username : nom d'usuari
+     * @return Interes : objecte que indica la quantitat de tipus de posts que ha visitat
+     */
+    public Interes extractInteres(Hashtable<String, Usuari> hashtable, String username){
+        Interes interes = new Interes();
 
         for(int i = 0; i < hashtable.get(username).getConnections().size(); i++){
 
@@ -76,19 +88,19 @@ public class TaulaHash {
                 j < hashtable.get(hashtable.get(username).getConnections().get(i).getUsername()).getPosts().size();
                 j++){
 
-                for(int k = 0; k < interessos.getCATEGORIES().length; k++){
+                for(int k = 0; k < interes.getCATEGORIES().length; k++){
 
                     if(hashtable.get(hashtable.get(username).getConnections()
-                            .get(i).getUsername()).getPosts().get(j).getCategory().equals(interessos.getCATEGORIES()[k])){
+                            .get(i).getUsername()).getPosts().get(j).getCategory().equals(interes.getCATEGORIES()[k])){
 
-                        interessos.setNum(interessos.getNum()[k] + 1, k);
+                        interes.setNum(interes.getNum()[k] + 1, k);
                     }   //if
                 }   //for
 
             }   //for
         }   //for
 
-        return interessos;
+        return interes;
     }
 
 }

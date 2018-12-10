@@ -1,9 +1,12 @@
 package Menus;
 
+import Estructures_Auxiliars.Interes;
+import Estructures_Auxiliars.TaulaHash;
+import Estructures_Auxiliars.TracteJSON;
 import GsonObjects.Post;
-import Sort.RadixSort;
-import Sort.SelectionSort;
+import Sort.*;
 
+import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,14 +18,24 @@ import java.util.Scanner;
  * @version 15/11/2018 - 0.1
  */
 
-public class SubMenu {
+class SubMenu {
 
     /**
-     *Procediment per visualitzar el submenú per seleccionar el mètode d'ordenació
+     * Procediment que s'encarrega de mostrar el menú del metode d'ordenació a triar
+     * @param opcio : funcionalitat seleccionada en l'anterior menú
+     * @param posts : ArrayList de Post
+     * @param latitudO : latitud si es que s'ha seleccionat la funcionalitat 2
+     * @param longitudO : longitud si es que s'ha seleccionat la funcionalitat 2
+     * @param username : nom d'usuari si es que s'ha seleccionat la funcionalitat 3
+     * @param taulaHash : Objecte que conté el HashTable si es que s'ha seleccionat la funcionalitat 3
      */
-    public void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO){
+    void mostraSubMenuOrd(int opcio, ArrayList<Post> posts, double latitudO, double longitudO, String username,
+                          TaulaHash taulaHash){
         String cas;
         Scanner sc = new Scanner(System.in);
+
+        TracteJSON tracteJSON = new TracteJSON();
+        Interes interes = null;
 
         // Pintem el menú:
         System.out.println("Metodes d'ordenacio:");
@@ -35,36 +48,47 @@ public class SubMenu {
 
         switch (cas) {
             case "1":
-                System.out.println("\nNo implementat\n");
+                MergeSort mergeSort = new MergeSort();
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
+                }
+                posts = mergeSort.ordenaMergeI(posts, 0, posts.size() -1, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "2":
-                System.out.println("\nNo implementat\n");
+                QuickSort quickSort = new QuickSort();
+                Parametre parametre = new Parametre(posts);
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
+                }
+                posts = quickSort.QuicksortI(parametre, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "3":
+
                 SelectionSort selectionSort = new SelectionSort();
-                if(opcio == 1) {
-                    posts = selectionSort.selectionSortPosts(posts);
-                    for(int i = 0; i < posts.size() - 1; i++){
-                        System.out.println(posts.get(i).getPublished());
-                    }   //for
-                }
-                else{
-                    if(opcio == 2){
-                        posts = selectionSort.selectionSortProximity(posts, latitudO, longitudO);
-                    }   //if
-                    else{
-                        
-                    }   //else
-                }   //else
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
+                }   //if
+                posts = selectionSort.selectionSort(posts, latitudO, longitudO, opcio, taulaHash.getHashtable()
+                        , username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             case "4":
+
                 RadixSort radixSort = new RadixSort();
-                if(opcio == 1){
-                    posts = radixSort.radixSortPost(posts);
-                    for(int i = posts.size() - 1; i > 0; i--){
-                        System.out.println(posts.get(i).getPublished());
-                    }   //for
+                if(opcio == 3){
+                    interes = taulaHash.extractInteres(taulaHash.getHashtable(), username);
                 }   //if
+                posts = radixSort.radixSort(posts, opcio, latitudO, longitudO, taulaHash.getHashtable(),
+                        username, interes);
+
+                tracteJSON.serializeJSON(posts);
                 break;
             default:
                 System.out.println("\nError, opció incorrecta\n");
@@ -75,7 +99,7 @@ public class SubMenu {
      *Procediment per visualitzar el submenú per seleccionar el JSON (els JSONs estan en la carpeta jsons)
      * el qual voldrem llegir
      */
-    public String mostraSubMenuJson(){
+    String mostraSubMenuJson(){
         String cas;
         Scanner sc = new Scanner(System.in);
         String json = "jsons/";
@@ -92,7 +116,7 @@ public class SubMenu {
 
             switch (cas) {
                 case "1":
-                   json = json.concat("m_dataset.json");
+                    json = json.concat("m_dataset.json");
                     break;
                 case "2":
                     json = json.concat("s_dataset.json");

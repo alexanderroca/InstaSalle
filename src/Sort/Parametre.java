@@ -1,29 +1,39 @@
 package Sort;
 
+import GsonObjects.Post;
+import javafx.geometry.Pos;
+
+import java.util.ArrayList;
+
 /**
  *Classe auxiliar que defineix els camps necessaris per efectuar el mètode d'ordenació Quicksort
  *
- * @author: Marc Cespedes
+ * @author Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 
+
 public class Parametre {
-    private int[] a;
+    private ArrayList<Post> posts;
     private int i;
     private int j;
 
-    public Parametre(int[] a) {
-        this.a = a;
+    /**
+     * Constructor que assgina l'array de post que rep i marca inici i final de l'array
+     * @param posts ArrayList de Post
+     */
+    public Parametre(ArrayList<Post> posts) {
+        this.posts = posts;
         i = 0;
-        j = a.length - 1;
+        j = posts.size() - 1;
     }
 
-    public int[] getA() {
-        return a;
+    public ArrayList<Post> getA() {
+        return posts;
     }
 
-    public int getAPos(int pos){
-        return a[pos];
+    public Post getAPos(int pos){
+        return posts.get(pos);
     }
 
     public int getI() {
@@ -34,8 +44,8 @@ public class Parametre {
         return j;
     }
 
-    public void setA(int[] a) {
-        this.a = a;
+    public void setA(ArrayList<Post> posts) {
+        this.posts = posts;
     }
 
     public void setI(int s) {
@@ -46,7 +56,7 @@ public class Parametre {
         this.j = t;
     }
 
-    public void setAPos(int pos, int num){
-        this.a[pos] = num;
+    public void setAPos(int pos, Post post){
+        this.posts.set(pos, post);
     }
 }

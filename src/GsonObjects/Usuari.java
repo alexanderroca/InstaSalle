@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  *Classe que defineix els camps d'un usuari del JSON
  *
- * @author: Alexander Roca, Marc Cespedes
+ * @author Alexander Roca, Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 

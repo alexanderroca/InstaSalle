@@ -1,6 +1,6 @@
 package Menus;
 
-import Estructures_Auxiliars.LlegeixJSON;
+import Estructures_Auxiliars.TracteJSON;
 import Estructures_Auxiliars.TaulaHash;
 import GsonObjects.Usuari;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *Classe que defineix el menú principal del programa, a partir d'aquesta
  * la resta de classes es relacionaran amb ella.
  *
- * @author: Alexander Roca, Marc Cespedes
+ * @author Alexander Roca, Marc Cespedes
  * @version 15/11/2018 - 0.1
  */
 
@@ -24,21 +24,23 @@ public class Menu {
         SubMenu submenu = new SubMenu();
         TaulaHash taulaHash;
 
-        double latitudO, longitudO;
+        double latitudO = 0, longitudO = 0;
+        String username = null;
+        int opcio = 0;
 
         String cas;
         Scanner sc = new Scanner(System.in);
 
-        LlegeixJSON llegeixJSON = new LlegeixJSON();
-        Usuari[] usuaris = llegeixJSON.readJSON(submenu.mostraSubMenuJson());
+        TracteJSON tracteJSON = new TracteJSON();
+        Usuari[] usuaris = tracteJSON.readJSON(submenu.mostraSubMenuJson());
 
         taulaHash = new TaulaHash(usuaris);
 
-        ArrayList posts = taulaHash.extractPosts(taulaHash);
+        ArrayList<GsonObjects.Post> posts = null;
 
         // Pintem el menú
         do{
-            System.out.println("Menus.Menu:");
+            System.out.println("Menu:");
             System.out.println("1. Segons temporalitat");
             System.out.println("2. Segons ubicació");
             System.out.println("3. Segons combinació de prioritats");
@@ -48,26 +50,45 @@ public class Menu {
 
             switch (cas) {
                 case "1":
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, 0, 0);
+                    
+                    opcio = Integer.valueOf(cas);
+                    posts = taulaHash.extractPosts(taulaHash);
                     break;
                 case "2":
+                    
+                    opcio = Integer.valueOf(cas);
                     System.out.print("Insereix-hi latitud: ");
                     latitudO = sc.nextDouble();
                     System.out.print("Insereix-hi longitud: ");
                     longitudO = sc.nextDouble();
-
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas), posts, latitudO, longitudO);
+                    posts = taulaHash.extractPosts(taulaHash);
                     break;
                 case "3":
-                    submenu.mostraSubMenuOrd(Integer.valueOf(cas),null, 0, 0);
+                    
+                    opcio = Integer.valueOf(cas);
+                    System.out.print("Insereix-hi nom usuari: ");
+                    username = sc.nextLine();
+                    try {
+                        posts = taulaHash.extractPostsFromUser(taulaHash.getHashtable(), username);
+                    }catch(NullPointerException e){
+                        opcio = 0;
+                        System.out.println("L'usuari inserit no existeix.");
+                    }
                     break;
                 case "4":
+                    
                     System.out.println("\nGracies per utilitzar el nostre programa !\n");
                     break;
                 default:
+                    
+                    opcio = 0;
                     System.out.println("\nError, opció incorrecta\n");
 
             }
+            
+            if(opcio > 0){
+                submenu.mostraSubMenuOrd(opcio,posts, latitudO, longitudO, username, taulaHash);
+            }   //if
         }while(!cas.equals("4"));
     }
 }
